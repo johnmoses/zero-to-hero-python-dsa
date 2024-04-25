@@ -1,0 +1,4 @@
+"""
+Simple Algorithm
+"""
+print('Algorithms')
