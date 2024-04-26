@@ -1,4 +1,4 @@
-# Introduction
+# Algorithm
 
-- 00 Intro
-- 10 Comments
+- [Introduction](00_intro.md)
+- [Algorithm Performance](10_performance.md)

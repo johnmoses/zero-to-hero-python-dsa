@@ -1,4 +1,3 @@
-# Introduction
+# Recursion
 
-- 00 Intro
-- 10 Comments
+- [Introduction](00_intro.md)
