@@ -1,4 +1,4 @@
 """
-Algorithm Performance
+Simple Algorithm
 """
 print('Algorithms')
