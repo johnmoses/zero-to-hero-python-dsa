@@ -1,4 +1,0 @@
-"""
-Simple Algorithm
-"""
-print('Algorithms')

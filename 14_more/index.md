@@ -1,3 +1,3 @@
-# Recursion
+# More Algorithms
 
 - [Introduction](intro.md)
