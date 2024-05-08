@@ -1,3 +1,0 @@
-# Recursion
-
-- [Introduction](intro.md)

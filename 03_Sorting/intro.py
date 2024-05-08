@@ -1,16 +1,16 @@
 """
 Simple Sort Algorithm
+Given an integer array nums sorted in non-decreasing order, 
+return an array of the squares of each number sorted in non-decreasing order
 """
 
-def insertion_sort(A):
-    """ sort list of comparable elements into non-decreasing order"""
-    for k in range(1, len(A)):
-        cur = A[k]
-        j = k
-        while j > 0 and A[j-1] > cur:
-            A[j] = A[j-1]
-            j -= 1
-        A[j] = cur
+from typing import List
 
-A = [3, 4, 2, 5, 1, 7]
-print(insertion_sort(A))
+def sorted_squares(nums: List[int]) -> List[int]:
+    """ 
+    The keyword `sorted` is used to sort the results
+    """
+    return sorted(x*x for x in nums)
+
+nums = [-4,-1,0,3,10]
+print(sorted_squares(nums))
