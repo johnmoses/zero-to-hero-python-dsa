@@ -12,6 +12,23 @@ Programatically we could define a tree T as a set of nodes storing elements such
 
 A typical implementation of a tree is binary trees that use linked structures
 
+## Tree Terminology
+- Node: An item stored in the tree
+- Root: The topmost node that has no parent
+- Child: A node immediately below and directly connected to a given node
+- Parent: A node immediately above and directly connected to a given node
+- Siblings: The children of a common parent
+- Leaf: A node that has no children
+- Interior node: A node that has at least one child
+- Edge/Branch/Link: The line that connects a parent to the child
+- Descendant: All the node's children down to the leaves
+- Ancestor: A node's parent up to the root
+- Path: The sequence of edges that connects a noe with one of its descendants
+- Path Length: The number of edges in a path
+- Depth or Level: The length of the path connecting the root
+- Height: The length of the longest path
+- Subtree: A tree formed from viewpoint of a node and all its descendants
+
 ## Binary Search Tree
 
 ## AVL Tree
