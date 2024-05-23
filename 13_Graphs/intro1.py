@@ -1,9 +1,9 @@
-'Dictionary based graph representation'
-
 '''
+Dictionary based graph representation
 This is a directed, cyclic graph stored as a dictionary
 the keys leads to nodes
 '''
+
 Graph = {
     'A': ['B','E','G'],
     'B': ['C'],
@@ -19,3 +19,4 @@ def tests(searcher):
     for x in ['AG', 'GF', 'BA', 'DA']:
         print(x, searcher(x[0], x[1], Graph))
 
+print(tests)

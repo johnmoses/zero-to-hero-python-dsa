@@ -22,4 +22,4 @@ Table Of Contents
 - [18 Deep Learning](./18_dl/index.md)
 - [19 Finance](./19_finance/index.md)
 - [20 Web](./20_web/index.md)
-- [21 Advancing](./21_advancing/index.md)
+- [21 More Algorithms](./21_more/index.md)
