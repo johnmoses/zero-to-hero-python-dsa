@@ -2,12 +2,20 @@
 Linked Lists
 """
 class Node:
-    def __init__(self, val):
-        self.val = val
+    def __init__(self, data):
+        self.data = data
         self.next = None
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# Instantiate Node
+a = Node(20)
+b = Node(30)
+c = Node(40)
 
-ll = LinkedList()
+# Traverse and print
+print(a.data)
+
+a.next = b
+b.next = c
+
+print(a.next.data)
+print(a.next.next.data)
