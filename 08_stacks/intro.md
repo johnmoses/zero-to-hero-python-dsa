@@ -8,8 +8,10 @@ Another example is the undo button of a text editor that keeps editing changes i
 
 Stacks being abstract data types(ADT) are the simplest as well as the most important of all data structures
 
-## Array Stach
+## Array Stack
+
 This is an array-based stack implementation.
 
 ## Queue Stack
+
 This is a `deque()` implementation of a stack
