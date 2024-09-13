@@ -1,7 +1,9 @@
 # zero-to-hero-algorithms
+
 Learning algorithms from zero to hero level
 
 Table Of Contents
+
 - [01 Algorithms](./01_algorithms/index.md)
 - [02 Searching](./02_searching/index.md)
 - [03 Sorting](./03_sorting/index.md)

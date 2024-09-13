@@ -5,12 +5,15 @@ A linked list is a linear data structure where each element is actually a separa
 It makes use of a lightweight object called node to allocate referrences to each element. It employs a couple of techniques to overcome some of the shortcomings of the sequence classes.
 
 ## Types of Linked Lists
-There are many types of linked lists: 
+
+There are many types of linked lists:
+
 - Singly linked lists
 - Doubly linked lists
 - Circularly linked lists
 - Multi linked lists
 
 Linked List operations
+
 - Insert
 - Delete

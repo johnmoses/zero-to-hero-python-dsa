@@ -8,7 +8,9 @@ Queue abstract data type (ADT) supports enqueue and dequeue operations. Enqueue 
 Other methods are `first(), is_empty(), len(Q)`.
 
 ## Priority queues
+
 This is a special type of queues that has a slight departure from the reqular queue policy. Here some very important exceptions are acommodated for insertion or removal of elements from the queues.
 
 ## Heaps
+
 A heap is an improvement over priority queue that achieves a faster and more efficient data structure.

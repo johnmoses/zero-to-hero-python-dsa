@@ -1,4 +1,3 @@
 """
-Simple Algorithm
+Simple Tree
 """
-print('Algorithms')
