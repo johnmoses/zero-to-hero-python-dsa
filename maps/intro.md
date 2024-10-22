@@ -1,0 +1,41 @@
+# Maps
+
+Maps extends a dictionary, an abstraction where unique keys are mapped to associative values. A real-world example os this is storing country name and associating it with their currencies
+
+There could be sorted and unsorted maps
+
+## Hash Tables
+
+This is a practical implementation of a map data structure
+Hash Table is a data structure which organizes data using hash functions in order to support quick insertion and search.
+
+Types of Hash Tables
+
+- Hash Set
+- Hash Map
+
+The hash set is one of the implementations of a set data structure to store no repeated values.
+The hash map is one of the implementations of a map data structure to store (key, value) pairs.
+
+## The Principle of Hash Table
+
+The key idea of Hash Table is to use a hash function to map keys to buckets. To be more specific,
+
+1. When we insert a new key, the hash function will decide which bucket the key should be assigned and the key will be stored in the corresponding bucket;
+2. When we want to search for a key, the hash table will use the same hash function to find the corresponding bucket and search only in the specific bucket.
+
+## Keys to hash table design
+
+There are two basic keys to the design of hash tables
+
+### Hash Functions
+
+### Collision Resolution
+
+## Skip List
+
+This is another implementation of maps
+
+## Sets
+
+Another implementation of maps
