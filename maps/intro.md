@@ -1,8 +1,12 @@
 # Maps
 
-Maps extends a dictionary, an abstraction where unique keys are mapped to associative values. A real-world example os this is storing country name and associating it with their currencies
+Maps extends a dictionary, an abstraction where unique keys are mapped to associative values. A real-world example os this is storing country name and associating it with their currencies.Maps could be sorted or unsorted
 
-There could be sorted and unsorted maps
+## Hashes
+
+Hashing is the process of mapping any amount of data to a specified size using an algorithm. Related to this is encryption, a two-way process.
+
+Common hashing algorithms includes MDS, SHA, SHA256 and Luhn
 
 ## Hash Tables
 
