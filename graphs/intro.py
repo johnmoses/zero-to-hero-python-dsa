@@ -1,38 +1,22 @@
-"""
-Basic graph
-"""
+'''
+Dictionary based graph representation
+This is a directed, cyclic graph stored as a dictionary
+the keys leads to nodes
+'''
 
-from collections import deque
+Graph = {
+    'A': ['B','E','G'],
+    'B': ['C'],
+    'C': ['D','E'],
+    'D': ['F'],
+    'E': ['C','F','G'],
+    'F': [''],
+    'G': ['A']
+}
 
-def _input(message):
-    return input(message).strip().split(" ")
+def tests(searcher):
+    print(searcher('E', 'D', Graph))
+    for x in ['AG', 'GF', 'BA', 'DA']:
+        print(x, searcher(x[0], x[1], Graph))
 
-def initialize_unweighted_directed_graph(
-    node_count: int, edge_count: int
-) -> dict[int, list[int]]:
-    graph: dict[int, list[int]] = {}
-    for i in range(node_count):
-        graph[i + 1] = []
-
-    for e in range(edge_count):
-        x, y = (int(i) for i in _input(f"Edge {e + 1}: <node1> <node2> "))
-        graph[x].append(y)
-    return graph
-
-if __name__ == "__main__":
-    n, m = (int(i) for i in _input("Number of nodes and edges: "))
-
-    graph_choice = int(
-        _input(
-            "Press 1 or 2 or 3 \n"
-            "1. Unweighted directed \n"
-            "2. Unweighted undirected \n"
-            "3. Weighted undirected \n"
-        )[0]
-    )
-
-    g = {
-        1: initialize_unweighted_directed_graph,
-        2: initialize_unweighted_undirected_graph,
-        3: initialize_weighted_undirected_graph,
-    }[graph_choice](n, m)
+print(tests)
