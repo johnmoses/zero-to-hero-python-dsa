@@ -6,22 +6,25 @@ from collections import deque
 
 class DequeStack:
     def __init__(self):
-        self.container = deque()
-    
-    def push(self,val):
-        self.container.append(val)
+        self.data = deque()
 
-    def pop(self):
-        return self.container.pop()
-
-    def peek(self):
-        return self.container[-1]
-
-    def is_empty(self):
-        return len(self.container)==0
+    def __len__(self):
+        return len(self.data)
 
     def size(self):
-        return len(self.container)
+        return len(self.data)
+
+    def is_empty(self):
+        return len(self.data)==0
+    
+    def push(self,val):
+        self.data.append(val)
+
+    def pop(self):
+        return self.data.pop()
+
+    def top(self):
+        return self.data[-1]
 
 if __name__ == "__main__":
     s = DequeStack()

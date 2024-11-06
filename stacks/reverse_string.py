@@ -2,11 +2,11 @@
 Reverse String
 """
 
-from deque_stack import DequeStack
+from intro import Stack
 
 # Function that can reverse a string using stack data structure
 def reverse_string(s):
-    stack = DequeStack()
+    stack = Stack()
 
     for ch in s:
         stack.push(ch)

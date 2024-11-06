@@ -6,35 +6,44 @@ class Queue:
     def __init__(self):
         self.data = []
 
+    def __len__(self):
+        return len(self.data)
+
+    # Get size
+    def size(self):
+        return len(self.data)
+
+    # Check if empty
+    def is_empty(self):
+        return len(self.data) == 0
+
     # Insert an element
-    def enQueue(self, x):
+    def push(self, x):
         if len(self.data) == 0:
             self.data.append(x)
             return
         tmp = self.data.pop(-1)
-        self.enQueue(x)
+        self.push(x)
         self.data.append(tmp)
 
     # Remove and element
-    def deQueue(self):
+    def pop(self):
         return self.data.pop(-1)
 
     # Get front element
     def front(self):
         return self.data[-1]
 
-    # Check if empty
-    def isEmpty(self):
-        return len(self.data) == 0
-
-q = Queue()
-print("queue")
-q.enQueue(5)
-q.enQueue(3)
-q.deQueue()
-if (q.isEmpty() == False):
-    print(q.front())
-q.deQueue()
-if (q.isEmpty() == False):
-    print(q.front())
+if __name__ == "__main__":
+    q = Queue()
+    q.push(7)
+    q.push(5)
+    q.push(2)
+    print('size: ', q.size())
+    q.pop()
+    if (q.is_empty() == False):
+        print(q.front())
+    q.pop()
+    if (q.is_empty() == False):
+        print(q.front())
     
