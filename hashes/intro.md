@@ -1,8 +1,4 @@
-# Maps
-
-Maps extends a dictionary, an abstraction where unique keys are mapped to associative values. A real-world example os this is storing country name and associating it with their currencies.Maps could be sorted or unsorted
-
-## Hashes
+# Hashes
 
 Hashing is the process of mapping any amount of data to a specified size using an algorithm. Related to this is encryption, a two-way process.
 
@@ -17,6 +13,8 @@ Types of Hash Tables
 
 - Hash Set
 - Hash Map
+
+Maps extends a dictionary, an abstraction where unique keys are mapped to associative values. A real-world example os this is storing country name and associating it with their currencies.Maps could be sorted or unsorted
 
 The hash set is one of the implementations of a set data structure to store no repeated values.
 The hash map is one of the implementations of a map data structure to store (key, value) pairs.

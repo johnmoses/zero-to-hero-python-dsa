@@ -1,9 +1,8 @@
 """
-Circularly-Linked List
+Singly Linked Lists
 """
-
 class Node:
-    def __init__(self, data):
+    def __init__(self, data=None):
         self.data = data
         self.next = None
 
@@ -15,15 +14,10 @@ c = Node(40)
 # Link the nodes
 a.next = b
 b.next = c
-c.next = a
 
 # Traverse and display nodes in order
 firstNode = a
-startNode = a
-print(firstNode.data, end=" -> ")
-firstNode = firstNode.next
-
-while firstNode != startNode:
+while firstNode:
     print(firstNode.data, end=" -> ")
     firstNode = firstNode.next
 print('Null')

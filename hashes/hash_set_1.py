@@ -1,5 +1,5 @@
 """
-Hash Maps
+Hash Sets
 """
 # create a hash with set keyword
 hashset = set()

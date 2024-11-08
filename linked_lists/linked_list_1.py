@@ -1,5 +1,5 @@
 """
-Singly-Linked List
+Singly Linked List class
 """
 
 class Node:
@@ -43,17 +43,9 @@ class LinkedList:
             self.tail = self.tail.next
         return self.tail
 
-    # def generate(self, n, min_value, max_value):
-    #     self.head = None
-    #     self.tail = None
-    #     for i in range(n):
-    #         self.add(randint(min_value, max_value))
-    #     return self
-
 ll = LinkedList()
 ll.add(1)
 ll.add(2)
 
-# ll.generate(10, 0, 99)
 print(ll)
 print(len(ll))
