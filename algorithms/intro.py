@@ -1,42 +1,16 @@
 """
 Simple Algorithms
+Fibonacci numbers
 """
 
-import time
+# Using loop
+prev2 = 0
+prev1 = 1
 
-def get_speeds_1(workload):
-    """ 
-    Get speeds for different workloads
-    """
-    print("%12s%16s" % ("Workload", "Seconds"))
-    for count in range(5):
-        start = time.time()
-        work = 1
-        for x in range(workload):
-            work += 1
-            work -= 1
-        elapsed = time.time() - start
-
-        print("%12d%16.3f" % (workload, elapsed))
-        workload *= 2
-
-def get_speeds_2(workload):
-    """ 
-    Get speeds for different workloads
-    """
-    print("%12s%16s" % ("Workload", "Seconds"))
-    for count in range(5):
-        start = time.time()
-        work = 1
-        for j in range(workload):
-            for k in range(workload):
-                work += 1
-                work -= 1
-        elapsed = time.time() - start
-
-        print("%12d%16.3f" % (workload, elapsed))
-        workload *= 2
-
-workload = 1000
-print(get_speeds_1(workload))
-print(get_speeds_2(workload))
+print(prev2)
+print(prev1)
+for fibo in range(10):
+    next_num = prev1 + prev2
+    print(next_num)
+    prev2 = prev1
+    prev1 = next_num
