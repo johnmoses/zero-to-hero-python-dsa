@@ -1,7 +1,8 @@
 """
 Array
-Let's find the minimum value of an array
+Let's say we want to find the minimum value of an array
 """
+
 # Define the array
 array = [6, 13, 9, 3, 11, 19]
 

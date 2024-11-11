@@ -2,41 +2,25 @@
 Introducing Stacks
 """
 
-class Stack:
-    """ 
-    Initialize a stack and add some behavious
-    """
-    def __init__(self):
-        self.data = []
+stack = []
 
-    def __len__(self):
-        return len(self.data)
+# Push
+stack.append('A')
+stack.append('B')
+stack.append('C')
+print("Stack: ", stack)
 
-    # Get size
-    def size(self):
-        return len(self.data)
+# Pop
+element = stack.pop()
+print("Pop: ", element)
 
-    # Check if empty
-    def is_empty(self):
-        return len(self.data) == 0
+# Peek
+topElement = stack[-1]
+print("Peek: ", topElement)
 
-    # Insert an element
-    def push(self, val):
-        self.data.append(val)
+# isEmpty
+isEmpty = not bool(stack)
+print("isEmpty: ", isEmpty)
 
-    # Remove an element
-    def pop(self):
-        return self.data.pop()
-
-    # Get top item
-    def top(self):
-        return self.data[-1]
-
-s = Stack()
-s.push(1)
-s.push(2)
-s.push(3)
-print(s.size())
-s.pop()
-print(s.top())
-print(s.size())
+# Size
+print("Size: ",len(stack))

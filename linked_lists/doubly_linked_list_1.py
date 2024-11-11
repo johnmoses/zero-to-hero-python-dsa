@@ -2,8 +2,6 @@
 Doubly-Linked List
 """
 
-from random import randint
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -32,25 +30,18 @@ class LinkedList:
 
     def add(self, data):
         if self.head is None:
-            newNode = Node(data)
-            self.head = newNode
-            self.tail = newNode
+            node = Node(data)
+            self.head = node
+            self.tail = node
         else:
             self.tail.next = Node(data)
             self.tail = self.tail.next
         return self.tail
 
-    def generate(self, n, min_value, max_value):
-        self.head = None
-        self.tail = None
-        for i in range(n):
-            self.add(randint(min_value, max_value))
-        return self
-
 ll = LinkedList()
-ll.add(1)
-ll.add(2)
+ll.add(20)
+ll.add(30)
+ll.add(40)
 
-ll.generate(10, 0, 99)
 print(ll)
 print(len(ll))

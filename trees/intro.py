@@ -3,26 +3,30 @@ Basic binary tree
 """
 
 class Node:
-    """ 
-    Node with value variable and pointers to nodes
-    """
-    def __init__(self, value: int) -> None:
-        self.value = value
-        self.left: Node | None = None
-        self.right: Node | None = None
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
 
-class BinaryTree:
-    """
-    Implementation
-    """
-    target: int
+root = Node('R')
+nodeA = Node('A')
+nodeB = Node('B')
+nodeC = Node('C')
+nodeD = Node('D')
+nodeE = Node('E')
+nodeF = Node('F')
+nodeG = Node('G')
 
-    def __init__(self) -> None:
-        self.paths = 0
+root.left = nodeA
+root.right = nodeB
 
-tree = Node(10)
-tree.left = Node(5)
-tree.right = Node(3)
-tree.left.left = Node(4)
-tree.left.right = Node(5)
-print(tree.left)
+nodeA.left = nodeC
+nodeA.right = nodeD
+
+nodeB.left = nodeE
+nodeB.right = nodeF
+
+nodeF.left = nodeG
+
+# Test
+print("root.right.left.data:", root.right.left.data)

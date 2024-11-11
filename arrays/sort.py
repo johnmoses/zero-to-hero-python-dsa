@@ -1,14 +1,15 @@
 """ 
 Sort Array elements
+Bubble Sort is an algorithm that sorts an array from the 
+lowest value to the highest value
 """
-def insertion_sort(A):
-    for k in range(1, len(A)):
-        cur = A[k]
-        j = k
-        while j > 0 and A[j-1] > cur:
-            A[j] = A[j-1]
-            j -= 1
-        A[j] = cur
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
 
-array = ["C", "E", "G", "B", "F", "A", "D"]
-print(insertion_sort(array))
+array = [64, 34, 25, 12, 22, 11, 90, 5]
+print(bubble_sort(array))
