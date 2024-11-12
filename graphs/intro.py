@@ -1,38 +1,52 @@
 """ 
-Directed and weighted graph
+Graph Representations
+Adjacency matrix and adjacency list will be our starting point
+for creating graph representations
 """
 
-class Graph:
-    def __init__(self, size):
-        self.adj_matrix = [[None] * size for _ in range(size)]
-        self.size = size
-        self.vertex_data = [''] * size  
+# Adjacency matrix
+vertexes = ['A', 'B', 'C', 'D'] # Vertex or node data
 
-    def add_edge(self, u, v, weight):
-        if 0 <= u < self.size and 0 <= v < self.size:
-            self.adj_matrix[u][v] = weight
-            self.adj_matrix[v][u] = weight
+adjacency_matrix = [
+    [0, 1, 1, 1],  # Edges for A
+    [1, 0, 1, 0],  # Edges for B
+    [1, 1, 0, 0],  # Edges for C
+    [1, 0, 0, 0]   # Edges for D
+]
 
-    def add_vertex_data(self, vertex, data):
-        if 0 <= vertex < self.size:
-            self.vertex_data[vertex] = data
+def print_adjacency_matrix(matrix):
+    print("\nAdjacency Matrix:")
+    for row in matrix:
+        print(row)
 
-    def print_graph(self):
-        print("Adjacency Matrix:")
-        for row in self.adj_matrix:
-            print(' '.join(map(lambda x: str(x) if x is not None else '0', row)))
-        print("\nVertex Data:")
-        for vertex, data in enumerate(self.vertex_data):
-            print(f"Vertex {vertex}: {data}")
+def print_connections(matrix, vertices):
+    print("\nConnections:")
+    for i in range(len(vertices)):
+        print(f"{vertices[i]}: ", end="")
+        for j in range(len(vertices)):
+            if matrix[i][j]:  # if there is a connection
+                print(vertices[j], end=" ")
+        print()  # new line
 
-g = Graph(4)
-g.add_vertex_data(0, 'A')
-g.add_vertex_data(1, 'B')
-g.add_vertex_data(2, 'C')
-g.add_vertex_data(3, 'D')
-g.add_edge(0, 1, 3)  # A -> B with weight 3
-g.add_edge(0, 2, 2)  # A -> C with weight 2
-g.add_edge(3, 0, 4)  # D -> A with weight 4
-g.add_edge(2, 1, 1)  # C -> B with weight 1
+print('vertexes:',vertexes)
+print_adjacency_matrix(adjacency_matrix)
+print_connections(adjacency_matrix, vertexes)
 
-g.print_graph()
+# Adjacency List
+print("\nAdjacency List:")
+V = 5   # Number of vertexes or nodes
+edges = [[0, 1], [1, 2], [2, 0],[3, 1], [4, 0]]
+adjacency_list = {}
+
+# Add vertices to the dictionary
+for i in range(V):
+    adjacency_list[i] = []
+
+# Add edges to the dictionary
+for edge in edges:
+    vertex1, vertex2 = edge
+    adjacency_list[vertex1].append(vertex2)
+
+# Display the adjacency list
+for vertex, neighbors in adjacency_list.items():
+    print(f"{vertex} -> {' '.join(map(str, neighbors))}")

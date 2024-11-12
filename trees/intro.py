@@ -8,25 +8,22 @@ class Node:
         self.left = None
         self.right = None
 
-root = Node('R')
-nodeA = Node('A')
-nodeB = Node('B')
-nodeC = Node('C')
-nodeD = Node('D')
-nodeE = Node('E')
-nodeF = Node('F')
-nodeG = Node('G')
+a = Node("A")   # Root
+b = Node("B")
+c = Node("C")
+d = Node("D")
+e = Node("E")
+f = Node("F")
+g = Node("G")
 
-root.left = nodeA
-root.right = nodeB
+a.left = b
+a.right = c
 
-nodeA.left = nodeC
-nodeA.right = nodeD
+b.left = d
+b.right = e
 
-nodeB.left = nodeE
-nodeB.right = nodeF
-
-nodeF.left = nodeG
+c.left = f
+c.right = g
 
 # Test
-print("root.right.left.data:", root.right.left.data)
+print("a.right.left.data:", a.right.left.data)
