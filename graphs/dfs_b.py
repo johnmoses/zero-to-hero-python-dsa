@@ -1,5 +1,5 @@
 """ 
-Graph Depth-first-search
+Graph Depth-first-search traversal
 """
 
 def dfs(graph, start, search_value, visited = None):

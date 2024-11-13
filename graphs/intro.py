@@ -1,52 +1,32 @@
 """ 
 Graph Representations
-Adjacency matrix and adjacency list will be our starting point
-for creating graph representations
+Adjacency matrix is a good starting point for creating graph representations
 """
 
-# Adjacency matrix
-vertexes = ['A', 'B', 'C', 'D'] # Vertex or node data
+nodes = ['A', 'B', 'C', 'D'] # Vertex or node data
 
-adjacency_matrix = [
+edges = [
     [0, 1, 1, 1],  # Edges for A
     [1, 0, 1, 0],  # Edges for B
     [1, 1, 0, 0],  # Edges for C
     [1, 0, 0, 0]   # Edges for D
 ]
 
-def print_adjacency_matrix(matrix):
-    print("\nAdjacency Matrix:")
-    for row in matrix:
+# Adjacency matrix
+def print_edges(edges):
+    print("\nEdges:")
+    for row in edges:
         print(row)
 
-def print_connections(matrix, vertices):
+def print_connections(edges, nodes):
     print("\nConnections:")
-    for i in range(len(vertices)):
-        print(f"{vertices[i]}: ", end="")
-        for j in range(len(vertices)):
-            if matrix[i][j]:  # if there is a connection
-                print(vertices[j], end=" ")
+    for i in range(len(nodes)):
+        print(f"{nodes[i]}: ", end="")
+        for j in range(len(nodes)):
+            if edges[i][j]:  # if there is a connection
+                print(nodes[j], end=" ")
         print()  # new line
 
-print('vertexes:',vertexes)
-print_adjacency_matrix(adjacency_matrix)
-print_connections(adjacency_matrix, vertexes)
-
-# Adjacency List
-print("\nAdjacency List:")
-V = 5   # Number of vertexes or nodes
-edges = [[0, 1], [1, 2], [2, 0],[3, 1], [4, 0]]
-adjacency_list = {}
-
-# Add vertices to the dictionary
-for i in range(V):
-    adjacency_list[i] = []
-
-# Add edges to the dictionary
-for edge in edges:
-    vertex1, vertex2 = edge
-    adjacency_list[vertex1].append(vertex2)
-
-# Display the adjacency list
-for vertex, neighbors in adjacency_list.items():
-    print(f"{vertex} -> {' '.join(map(str, neighbors))}")
+print('Nodes:',nodes)
+print_edges(edges)
+print_connections(edges, nodes)

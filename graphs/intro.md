@@ -32,3 +32,9 @@ G = (
 ```
 
 The graph G has 4 vertices v and 3 edges e. It is represented pictorially as 4 labeled circles (vertices) with 3 lines (edges)
+
+## Belman Ford
+
+The Bellman-Ford algorithm is best suited to find the shortest paths in a directed graph, with one or more negative edge weights, from the source vertex to all other vertices.
+
+It does so by repeatedly checking all the edges in the graph for shorter paths, as many times as there are vertices in the graph (minus 1).
