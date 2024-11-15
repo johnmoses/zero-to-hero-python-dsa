@@ -1,16 +1,15 @@
 """
-Simple Sort Algorithm
+Simple Bubble Sort Algorithm
 Given an integer array nums sorted in non-decreasing order, 
 return an array of the squares of each number sorted in non-decreasing order
 """
 
-from typing import List
+arr = [64, 34, 25, 12, 22, 11, 90, 5]
 
-def sorted_squares(nums: List[int]) -> List[int]:
-    """ 
-    The keyword `sorted` is used to sort the results
-    """
-    return sorted(x*x for x in nums)
+n = len(arr)
+for i in range(n-1):
+    for j in range(n-i-1):
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
 
-nums = [-4,-1,0,3,10]
-print(sorted_squares(nums))
+print("Sorted array:", arr)
