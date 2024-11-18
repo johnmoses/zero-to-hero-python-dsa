@@ -1,19 +1,22 @@
 """ 
 Merge Sort
+This is a divide-and-conquer algorithm that sorts an array 
+by first breaking it down into smaller arrays, 
+and then building the array back together the correct way so that it is sorted.
 """
 
-def mergeSort(arr):
+def merge_sort(arr):
     if len(arr) <= 1:
         return arr
 
     mid = len(arr) // 2
-    leftHalf = arr[:mid]
-    rightHalf = arr[mid:]
+    left_half = arr[:mid]
+    right_half = arr[mid:]
 
-    sortedLeft = mergeSort(leftHalf)
-    sortedRight = mergeSort(rightHalf)
+    sorted_left = merge_sort(left_half)
+    sorted_right = merge_sort(right_half)
 
-    return merge(sortedLeft, sortedRight)
+    return merge(sorted_left, sorted_right)
 
 def merge(left, right):
     result = []
@@ -32,6 +35,6 @@ def merge(left, right):
 
     return result
 
-unsortedArr = [3, 7, 6, -10, 15, 23.5, 55, -13]
-sortedArr = mergeSort(unsortedArr)
-print("Sorted array:", sortedArr)
+arr = [3, 7, 6, -10, 15, 23.5, 55, -13]
+sorted_arr = merge_sort(arr)
+print("Sorted:", sorted_arr)

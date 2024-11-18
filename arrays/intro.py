@@ -3,7 +3,7 @@ Array
 Let's say we want to find the minimum value of an array
 """
 
-# Define the array
+# Define or create the array
 array = [6, 13, 9, 3, 11, 19]
 
 # Initialize 'min_val' variable
