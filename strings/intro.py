@@ -1,18 +1,17 @@
 """
-Reverse a String
+String methods
 """
 
-from typing import List
+txt = "hello, and welcome to my world."
 
-def reverse_string(s: List[str]) -> None:
-    """
-    Do not return anything, modify s in-place
-    """
-    left, right = 0, len(s) - 1
-    while left < right:
-        s[left], s[right] = s[right], s[left]
-        left, right = left + 1, right -1
-    print(s)
+# Make the first letter upper case
+x = txt.capitalize()
+print (x)
 
-s = ["h","e","l","l","o"]
-print(reverse_string(s))
+# Convert to lower case
+x = txt.casefold()
+print(x)
+
+# Find text
+x = txt.find("welcome")
+print(x)

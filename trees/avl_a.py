@@ -1,5 +1,5 @@
 """ 
-AVL Trees
+AVL Tree
 """
 
 class TreeNode:

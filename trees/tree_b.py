@@ -1,5 +1,5 @@
 """
-Tree
+Binary Tree
 """
 
 class Node:
