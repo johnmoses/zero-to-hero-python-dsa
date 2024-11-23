@@ -1,24 +1,35 @@
 """
 Matrix and Operations
 """
-from __future__ import annotations
+# Defining number of rows and columns in matrix
+rows = 3
+cols = 3
 
-def search_sorted(mat: list[list], m: int, n: int, key: int | float) -> None:
-    """
-    Search a sorted matrix
-    """
-    i, j = m-1, 0
-    while i >= 0 and j < n:
-        if key == mat[i][j]:
-            print(f"key {key} found at row- {i+1} column- {j+1}")
-            return
-        if key < mat[i][j]:
-             i -= 1
-        else:
-            j += 1
-    print(f"key {key} not found")
+# Declaring a matrix of size 3 X 3, and 
+# initializing it with value zero
+rows, cols = (3, 3)
+arr = [[0]*cols]*rows
+print(arr)
 
-mat = [[2, 5, 7], [4, 8, 13], [9, 11, 15], [12, 17, 20]]
-x = int(input("Enter the element to be searched:"))
-print(mat)
-search_sorted(mat, len(mat), len(mat[0]), x)
+arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+# Accessing elements of 2-D array
+print("First element of first row:", arr[0][0])
+print("Third element of second row:", arr[1][2])
+print("Second element of third row:", arr[2][1])
+
+# Initializing a 2-D list with values
+arr = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]
+]
+
+# Traversing each row
+for row in arr:
+  
+    # Traversing each element
+    # in the current row
+    for x in row:
+        print(x, end=" ")
+    print()

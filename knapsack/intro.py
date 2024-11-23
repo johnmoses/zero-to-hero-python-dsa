@@ -1,28 +1,34 @@
 """ 
-Knapsack problem
+Knapsack algorithm
+A naive solution of the 0-1 problem
 """
 
-def knapsack(capacity: int, weights: list[int], values: list[int], counter: int) -> int:
-    """
-    Returns the maximum value that can be put in knalsack of a capacity cap,
-    whereby each weight w has a specific value val.
-    """
-    # Define base case 
-    if counter == 0 or capacity == 0:
+def knapsack(W, wt, val, n):
+
+    # Base Case
+    if n == 0 or W == 0:
         return 0
-    # Check weights
-    if weights[counter - 1] > capacity:
-        return knapsack(capacity, weights, values, counter - 1)
 
+    # If weight of the nth item is
+    # more than Knapsack of capacity W,
+    # then this item cannot be included
+    # in the optimal solution
+    if (wt[n-1] > W):
+        return knapsack(W, wt, val, n-1)
+
+    # return the maximum of two cases:
+    # (1) nth item included
+    # (2) not included
     else:
-        left_capacity = capacity - weights[counter - 1]
-        new_value_included = values[counter - 1] + knapsack(
-            left_capacity, weights, values, counter - 1
-        )
-        without_new_value = knapsack(capacity, weights, values, counter - 1)
-        return max(new_value_included, without_new_value)
+        return max(
+            val[n-1] + knapsack(
+                W-wt[n-1], wt, val, n-1),
+            knapsack(W, wt, val, n-1))
 
-if __name__ == "__main__":
-    import doctest
 
-    doctest.testmod()
+if __name__ == '__main__':
+    profit = [60, 100, 120]
+    weight = [10, 20, 30]
+    W = 50
+    n = len(profit)
+    print(knapsack(W, weight, profit, n))
