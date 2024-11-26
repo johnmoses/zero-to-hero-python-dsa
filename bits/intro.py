@@ -1,6 +1,10 @@
 """
 Bit manipulation operations
 """
+
+def get_bit(num, i):
+    return (num & (1 << i)) != 0
+    
 def set_bit(number: int, position: int) -> int:
     """
     Set the bit at position to 1
