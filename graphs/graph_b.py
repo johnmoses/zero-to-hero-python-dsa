@@ -3,8 +3,8 @@ Directed and weighted Graph with adjacency matrix representation
 """
 class Graph:
     def __init__(self, size):
-        self.edges = [[0] * size for _ in range(size)]
         self.size = size
+        self.edges = [[0] * size for _ in range(size)]
         self.nodes = [''] * size  
 
     # Edges in the matrix

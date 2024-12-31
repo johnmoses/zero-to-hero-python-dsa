@@ -3,20 +3,20 @@ Undirected Graph with adjacency matrix representation
 """
 class Graph:
     def __init__(self, size):
-        self.edges = [[0] * size for _ in range(size)]
         self.size = size
-        self.nodes = [''] * size  
+        self.nodes = [''] * size
+        self.edges = [[0] * size for _ in range(size)]  
+
+    # Nodes or vertices
+    def add_node(self, node, data):
+        if 0 <= node < self.size:
+            self.nodes[node] = data
 
     # Edges in the matrix
     def add_edge(self, u, v):
         if 0 <= u < self.size and 0 <= v < self.size:
             self.edges[u][v] = 1
             self.edges[v][u] = 1
-
-    # Nodes or vertices
-    def add_node(self, node, data):
-        if 0 <= node < self.size:
-            self.nodes[node] = data
 
     def print_graph(self):
         print("\nEdges:")

@@ -5,8 +5,8 @@ Best Shortest path solutions
 
 class Graph:
     def __init__(self, size):
-        self.edges = [[0] * size for _ in range(size)]
         self.size = size
+        self.edges = [[0] * size for _ in range(size)]
         self.nodes = [''] * size  
 
     # Edges in the matrix

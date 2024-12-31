@@ -3,8 +3,8 @@ Undirected Graph with cyclic detection
 """
 class Graph:
     def __init__(self, size):
-        self.edges = [[0] * size for _ in range(size)]
         self.size = size
+        self.edges = [[0] * size for _ in range(size)]
         self.nodes = [''] * size  
 
     # Edges in the matrix

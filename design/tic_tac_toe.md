@@ -1,3 +1,5 @@
+# Tic-tac-toe
+
 Assume the following rules are for the tic-tac-toe game on an n x n board between two players:
 
 A move is guaranteed to be valid and is placed on an empty block.
