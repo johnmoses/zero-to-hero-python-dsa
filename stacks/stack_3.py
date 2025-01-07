@@ -12,6 +12,17 @@ class Stack:
         self.head = None
         self.size = 0
     
+    def peek(self):
+        if self.isEmpty():
+            return "Stack is empty"
+        return self.head.data
+    
+    def isEmpty(self):
+        return self.size == 0
+    
+    def getSize(self):
+        return self.size
+    
     def push(self, data):
         new_node = Node(data)
         if self.head:
@@ -26,24 +37,13 @@ class Stack:
         self.head = self.head.next
         self.size -= 1
         return popped_node.data
-    
-    def peek(self):
-        if self.isEmpty():
-            return "Stack is empty"
-        return self.head.data
-    
-    def isEmpty(self):
-        return self.size == 0
-    
-    def stackSize(self):
-        return self.size
 
-myStack = Stack()
-myStack.push('A')
-myStack.push('B')
-myStack.push('C')
+s = Stack()
+s.push('A')
+s.push('B')
+s.push('C')
 
-print("Pop: ", myStack.pop())
-print("Peek: ", myStack.peek())
-print("isEmpty: ", myStack.isEmpty())
-print("Size: ", myStack.stackSize())
+print("Pop: ", s.pop())
+print("Peek: ", s.peek())
+print("isEmpty: ", s.isEmpty())
+print("Size: ", s.getSize())

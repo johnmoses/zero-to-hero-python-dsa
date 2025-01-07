@@ -6,12 +6,13 @@ class Node:
         self.data = data
         self.next = None
 
-def traverse_and_print(head):
-    current_node = head
-    while current_node:
-        print(current_node.data, end=" -> ")
-        current_node = current_node.next
-    print("null")
+def traverse(head):
+    node = head
+    nodes = ''
+    while node:
+        nodes += (str(node.data) + ' -> ')
+        node = node.next
+    return nodes
 
 def delete_node(head, node):
     if head == node:
@@ -39,10 +40,10 @@ c.next = d
 d.next = e
 
 # All nodes
-traverse_and_print(a)
+print(traverse(a))
 
 # Deleting node c
 a = delete_node(a, c)
 
 # Final
-traverse_and_print(a)
+print(traverse(a))

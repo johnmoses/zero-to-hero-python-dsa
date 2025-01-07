@@ -24,13 +24,11 @@ c.prev = b
 # Traverse and display nodes forward in order
 firstNode = a
 while firstNode:
-    print(firstNode.data, end=" -> ")
+    print(firstNode.data, " ".join(" -> "))
     firstNode = firstNode.next
-print('Null')
 
 # Traverse and display nodes backward in order
 lastNode = c
 while lastNode:
-    print(lastNode.data, end=" -> ")
+    print(lastNode.data, " ".join(" -> "))
     lastNode = lastNode.prev
-print('Null')

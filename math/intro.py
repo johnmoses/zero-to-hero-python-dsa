@@ -6,7 +6,7 @@ import math
 def add(a, b):
     return a + b
 
-def prime_factors(n: int) -> list:
+def prime_factors(n):
     factors = []
     while n % 2 == 0:
         factors.append(2)

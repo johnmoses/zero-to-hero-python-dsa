@@ -1,6 +1,7 @@
 """
 Reverse List
 """
+head = [1,2,3,4,5]
 
 # Definition for singly-linked list.
 class ListNode:
@@ -8,8 +9,11 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __str__(self):
+        return str(self.val)
+
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
+    def reverseList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -24,6 +28,9 @@ class Solution:
         head = prev_node
         return head
 
-head = [1,2,3,4,5]
+    # def __str__(self):
+    #     values = [str(x.head) for x in self]
+    #     return ' -> '.join(values)
+
 sn = Solution()
 print(sn.reverseList(ListNode(head)))

@@ -27,3 +27,17 @@ c.right = g
 
 # Test
 print("a.right.left.data:", a.right.left.data)
+
+# Traverse
+tree = []
+root = a
+nodes = []
+while root or nodes:
+    while root:
+        nodes.append(root)
+        root = root.left
+    root = nodes.pop()
+    tree.append(root.data)
+    root = root.right
+values = [str(i) + '->' for i in tree]
+print(values)

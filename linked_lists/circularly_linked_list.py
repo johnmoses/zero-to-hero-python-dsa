@@ -20,10 +20,9 @@ c.next = a
 # Traverse and display nodes in order
 firstNode = a
 startNode = a
-print(firstNode.data, end=" -> ")
+print(firstNode.data, "".join(" -> "))
 firstNode = firstNode.next
 
 while firstNode != startNode:
-    print(firstNode.data, end=" -> ")
+    print(firstNode.data, " ".join(" -> "))
     firstNode = firstNode.next
-print('Null')

@@ -6,12 +6,13 @@ class Node:
         self.data = data
         self.next = None
 
-def traverse_and_print(head):
+def traverse(head):
     node = head
+    nodes = ''
     while node:
-        print(node.data, end=" -> ")
+        nodes += (str(node.data) + ' -> ')
         node = node.next
-    print("null")
+    return nodes
 
 a = Node(20)
 b = Node(30)
@@ -24,4 +25,4 @@ b.next = c
 c.next = d
 d.next = e
 
-traverse_and_print(a)
+print(traverse(a))

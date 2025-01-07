@@ -30,3 +30,11 @@ def print_connections(edges, nodes):
 print('Nodes:',nodes)
 print_edges(edges)
 print_connections(edges, nodes)
+
+# print('Graph')
+# for i in range(len(nodes)):
+#     print(f'{nodes[i]}: ', end='')
+#     for j in range(len(nodes)):
+#         if edges[i][j]:
+#             print(nodes[j], end=' ')
+#     print()

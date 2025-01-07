@@ -13,12 +13,16 @@ class Stack:
         return len(self.data)
 
     # Get size
-    def size(self):
+    def getSize(self):
         return len(self.data)
 
     # Check if empty
-    def is_empty(self):
+    def isEmpty(self):
         return len(self.data) == 0
+
+    # Get top or peek item
+    def top(self):
+        return self.data[-1]
 
     # Insert an element
     def push(self, val):
@@ -28,15 +32,11 @@ class Stack:
     def pop(self):
         return self.data.pop()
 
-    # Get top or peek item
-    def top(self):
-        return self.data[-1]
-
 s = Stack()
 s.push(1)
 s.push(2)
 s.push(3)
-print(s.size())
-s.pop()
-print(s.top())
-print(s.size())
+print('Size: ', s.getSize())
+print('Pop: ', s.pop())
+print('Top: ', s.top())
+print('Size: ', s.getSize())

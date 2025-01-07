@@ -4,7 +4,7 @@ Deque Queue
 
 from collections import deque
 
-class DequeQueue:
+class Queue:
     def __init__(self):
         self.data = deque()
 
@@ -30,7 +30,7 @@ class DequeQueue:
         return self.data[-1]
 
 if __name__ == "__main__":
-    q = DequeQueue()
+    q = Queue()
     q.push(7)
     q.push(5)
     q.push(2)
