@@ -1,16 +1,17 @@
 """
-Simple Algorithms
-Fibonacci numbers
+Simple Algorithms:
+Fibonacci numbers using native approach
 """
 
-# Using loop
-prev2 = 0
-prev1 = 1
+n = 10
+num1 = 0
+num2 = 1
+next_number = num2  
+count = 1
 
-print(prev2)
-print(prev1)
-for fibo in range(10):
-    next_num = prev1 + prev2
-    print(next_num)
-    prev2 = prev1
-    prev1 = next_num
+while count <= n:
+    print(next_number, end=" ")
+    count += 1
+    num1, num2 = num2, next_number
+    next_number = num1 + num2
+print()
