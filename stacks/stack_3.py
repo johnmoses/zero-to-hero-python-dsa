@@ -11,17 +11,17 @@ class Stack:
     def __init__(self):
         self.head = None
         self.size = 0
-    
-    def peek(self):
-        if self.isEmpty():
-            return "Stack is empty"
-        return self.head.data
-    
+
     def isEmpty(self):
         return self.size == 0
     
     def getSize(self):
         return self.size
+    
+    def peek(self):
+        if self.isEmpty():
+            return "Stack is empty"
+        return self.head.data
     
     def push(self, data):
         new_node = Node(data)

@@ -1,6 +1,8 @@
+""" 
+Binary Tree Traversals
 """
-Basic binary tree
-"""
+
+from collections import deque
 
 class Node:
     def __init__(self, data):
@@ -16,22 +18,49 @@ class Tree:
         self.root = root
 
     def pre_order(self, node):
+        """ 
+        Visits root, left, right subtrees
+        """
         if node:
             print(node, end=" ")
             self.pre_order(node.left)
             self.pre_order(node.right)
 
     def in_order(self, node):
-        if node:
-            self.in_order(node.left)
-            print(node, end=" ")
-            self.in_order(node.right)
+        """ 
+        Visits left, root, right subtrees
+        """
+        if node is None:
+            return
+        self.in_order(node.left)
+        print(node.data, end=" ")
+        self.in_order(node.right)
 
     def post_order(self, node):
+        """ 
+        Visits left, right, root subtrees
+        """
         if node:
             self.post_order(node.left)
             self.post_order(node.right)
             print(node, end=" ")
+
+    def level_order(self, node):
+        """ 
+        Returns list of nodes value from whole tree in level order,
+        by visiting nodes of tree level-by-level
+        """
+        if node:
+            queue = deque([node])
+
+            while queue:
+                n = queue.popleft()
+                print(n.data, end=" ")
+
+                if n.left:
+                    queue.append(n.left)
+                if n.right:
+                    queue.append(n.right)
 
 a = Node("A")   # Root
 b = Node("B")
@@ -62,3 +91,8 @@ print("\n")
 
 print("Postorder Traversal")
 tree.post_order(a)
+print("\n")
+
+print("Levelorder Traversal")
+tree.level_order(a)
+print("\n")

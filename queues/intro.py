@@ -2,48 +2,25 @@
 Introduction to Queues
 """
 
-class Queue:
-    def __init__(self):
-        self.data = []
+queue = []
 
-    def __len__(self):
-        return len(self.data)
+# Enqueue
+queue.append('A')
+queue.append('B')
+queue.append('C')
+print("Queue: ", queue)
 
-    # Get size
-    def size(self):
-        return len(self.data)
+# isEmpty
+isEmpty = not bool(queue)
+print("isEmpty: ", isEmpty)
 
-    # Check if empty
-    def is_empty(self):
-        return len(self.data) == 0
+# Size
+print("Size: ", len(queue))
 
-    # Insert an element
-    def push(self, x):
-        if len(self.data) == 0:
-            self.data.append(x)
-            return
-        tmp = self.data.pop(-1)
-        self.push(x)
-        self.data.append(tmp)
+# Dequeue
+element = queue.pop(0)
+print("Dequeue: ", element)
 
-    # Remove and element
-    def pop(self):
-        return self.data.pop(-1)
-
-    # Get front element
-    def front(self):
-        return self.data[-1]
-
-if __name__ == "__main__":
-    q = Queue()
-    q.push(7)
-    q.push(5)
-    q.push(2)
-    print('size: ', q.size())
-    q.pop()
-    if (q.is_empty() == False):
-        print(q.front())
-    q.pop()
-    if (q.is_empty() == False):
-        print(q.front())
-    
+# Peek
+frontElement = queue[0]
+print("Peek: ", frontElement)

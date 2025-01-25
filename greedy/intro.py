@@ -14,6 +14,8 @@ is to either buy at the current price if it's less than our current buying price
 sell at the current price if the profit is more than our current maximum profit.
 """
 
+prices = [7, 1, 5, 3, 6, 4]
+
 def max_profit(prices: list[int]) -> int:
     if not prices:
         return 0
@@ -26,5 +28,4 @@ def max_profit(prices: list[int]) -> int:
         max_profit = max(price - min_price, max_profit)
     return max_profit
 
-prices = [7, 1, 5, 3, 6, 4]
 print(max_profit(prices))
