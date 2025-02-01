@@ -3,6 +3,9 @@ Search Algorithm
 Searching for the index of a selected number
 """
 
+nums = [-1,0,3,5,9,12]
+target = 9
+
 from typing import List
 
 def search_1(nums: int, target: int) -> int:
@@ -37,7 +40,5 @@ def search_2(nums: List[int], target: int) -> int:
                 end = mid - 1
     return -1
 
-nums = [-1,0,3,5,9,12]
-target = 9
 print(search_1(nums, target))
 print(search_2(nums, target))
