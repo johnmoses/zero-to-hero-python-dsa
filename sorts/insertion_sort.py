@@ -4,7 +4,7 @@ It uses one part of the array to hold the sorted values, and the other part of t
 """
 arr = [64, 34, 25, 12, 22, 11, 90, 5]
 
-def insertion(arr):
+def insertion_sort_1(arr):
     n = len(arr)
     for k in range(1, n):
         cur = arr[k]
@@ -15,9 +15,9 @@ def insertion(arr):
         arr[j] = cur
     return arr
 
-print(insertion(arr))
+print(insertion_sort_1(arr))
 
-def insertion_1(arr):
+def insertion_sort_2(arr):
     n = len(arr)
     for i in range(1,n):
         insert_index = i
@@ -28,9 +28,9 @@ def insertion_1(arr):
         arr.insert(insert_index, current_value)
     return arr
 
-print(insertion_1(arr))
+print(insertion_sort_2(arr))
 
-def insertion_2(arr):
+def insertion_sort_3(arr):
     n = len(arr)
     for i in range(1,n):
         insert_index = i
@@ -43,4 +43,4 @@ def insertion_2(arr):
                 break
         arr[insert_index] = current_value
     return arr
-print(insertion_2(arr))
+print(insertion_sort_3(arr))
