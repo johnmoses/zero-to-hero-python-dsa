@@ -1,6 +1,16 @@
 """ 
 Graph Depth-first-search traversal
 """
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+start = "E"
+search_value = "C"
 
 def dfs(graph, start, search_value, visited = None):
     if visited is None:
@@ -17,16 +27,5 @@ def dfs(graph, start, search_value, visited = None):
                 return True
     return False
    
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
-}
-
-start = "F"
-search_value = "Z"
 res = dfs(graph, start, search_value)
 print(f"element {search_value} : {res}")

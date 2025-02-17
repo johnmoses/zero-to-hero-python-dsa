@@ -1,5 +1,5 @@
 """
-Hash Sets
+Hash Sets, hash function
 """
 hash_set = [None,'Joy',None,'Lisa',None,'Bob',None,'Mary','Pete',None]
 

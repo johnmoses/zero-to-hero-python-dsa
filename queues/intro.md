@@ -14,3 +14,17 @@ This is a special type of queues that has a slight departure from the reqular qu
 ## Heaps
 
 A heap is an improvement over priority queue that achieves a faster and more efficient data structure.
+
+There are many ways of creating queues, popular ones include array, queues, deque queues, and linked list queues
+
+## Array Queue
+
+This is an array-based queue implementation
+
+## Deque Queues
+
+This is a `deque()` implementation of a queue
+
+## Linked List Queues
+
+This uses linked list for queue implementation

@@ -20,12 +20,13 @@ b.next = c
 firstNode = a
 
 # Traverse and display nodes in order
-# There are many ways to do this
 
-# while firstNode:
-#     print(firstNode.data)
-#     firstNode = firstNode.next
+# Method 1
+while firstNode:
+    print(firstNode.data)
+    firstNode = firstNode.next
 
+# Method 2
 # nodes = ""
 # while firstNode:
 #     # print(firstNode.data)
@@ -33,9 +34,10 @@ firstNode = a
 #     firstNode = firstNode.next
 # print(nodes)
 
-nodes = []
-while firstNode:
-    nodes.append(firstNode.data)
-    firstNode = firstNode.next
-values = [str(i) + ' -> ' for i in nodes]
-print(values)
+# Method 3
+# nodes = []
+# while firstNode:
+#     nodes.append(firstNode.data)
+#     firstNode = firstNode.next
+# values = [str(i) + ' -> ' for i in nodes]
+# print(values)

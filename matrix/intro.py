@@ -33,3 +33,4 @@ for row in arr:
     for x in row:
         print(x, end=" ")
     print()
+    

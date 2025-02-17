@@ -13,17 +13,21 @@ class Queue:
         self.rear = None
         self.length = 0
     
-    def isEmpty(self):
-        return self.length == 0
-    
+    # Get size
     def getSize(self):
         return self.length
     
+    # Check if empty
+    def isEmpty(self):
+        return self.length == 0
+    
+    # Get front or peek item
     def peek(self):
         if self.isEmpty():
             return "Queue is empty"
         return self.front.data
     
+    # Insert an item
     def enqueue(self, element):
         new_node = Node(element)
         if self.rear is None:
@@ -34,6 +38,7 @@ class Queue:
         self.rear = new_node
         self.length += 1
     
+    # Remove an item
     def dequeue(self):
         if self.isEmpty():
             return "Queue is empty"
@@ -44,6 +49,7 @@ class Queue:
             self.rear = None
         return temp.data
 
+    # Print queue
     def printQueue(self):
         temp = self.front
         while temp:
@@ -56,8 +62,8 @@ q = Queue()
 q.enqueue('A')
 q.enqueue('B')
 q.enqueue('C')
-print("Queue: ", end="")
 q.printQueue()
+print("Size: ", q.getSize())
 print("Dequeue: ", q.dequeue())
 print("Peek: ", q.peek())
 print("isEmpty: ", q.isEmpty())

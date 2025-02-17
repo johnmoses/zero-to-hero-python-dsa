@@ -3,13 +3,14 @@ Graph Representations
 Adjacency matrix is a good starting point for creating graph representations
 """
 
-nodes = ['A', 'B', 'C', 'D'] # Vertex or node data
+nodes = ['A', 'B', 'C', 'D', 'E'] # Vertex or node data
 
 edges = [
-    [0, 1, 1, 1],  # Edges for A
-    [1, 0, 1, 0],  # Edges for B
-    [1, 1, 0, 0],  # Edges for C
-    [1, 0, 0, 0]   # Edges for D
+    [0, 1, 1, 1, 0],  # Edges for A
+    [1, 0, 1, 0, 0],  # Edges for B
+    [1, 1, 0, 0, 0],  # Edges for C
+    [1, 0, 0, 0, 0],  # Edges for D
+    [0, 0, 0, 0, 1]   # Edges for E
 ]
 
 # Adjacency matrix

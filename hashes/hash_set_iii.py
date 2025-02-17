@@ -2,8 +2,8 @@
 Hash Set example
 """
 
-["HashSet", "add", "add", "contains", "contains", "add", "contains", "remove", "contains"]
-[[], [1], [2], [1], [3], [2], [2], [2], [2]]
+# ["HashSet", "add", "add", "contains", "contains", "add", "contains", "remove", "contains"]
+# [[], [1], [2], [1], [3], [2], [2], [2], [2]]
 
 class HashSet:
 

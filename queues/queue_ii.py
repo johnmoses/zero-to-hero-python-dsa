@@ -11,12 +11,15 @@ class Queue:
     def __len__(self):
         return len(self.data)
 
+    # Get size
     def getSize(self):
         return len(self.data)
 
+    # Check if empty
     def isEmpty(self):
         return len(self.data) == 0
 
+    # Get front or peek item
     def peek(self):
         if self.isEmpty():
             return "Queue is empty"
@@ -26,9 +29,11 @@ class Queue:
     def front(self):
         return self.data[-1]
 
-    def enqueue(self, element):
-        self.data.append(element)
+    # Insert an item
+    def enqueue(self, val):
+        self.data.append(val)
     
+    # Remove an item
     def dequeue(self):
         if self.isEmpty():
             return "Queue is empty"
@@ -39,7 +44,10 @@ q = Queue()
 q.enqueue('A')
 q.enqueue('B')
 q.enqueue('C')
+print("Queue: ", q.data)
+print("Size: ", q.getSize())
 print("Dequeue: ", q.dequeue())
 print("Peek: ", q.peek())
+print("Front: ", q.front())
 print("isEmpty: ", q.isEmpty())
 print("Size: ", q.getSize())

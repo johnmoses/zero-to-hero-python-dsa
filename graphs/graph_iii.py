@@ -1,86 +1,81 @@
 """ 
-Graph 3
+Graph with most features
 """
-
-class Node:
-    """ 
-    Node represent each vertex of the graph
-    data: stored data or value
-    edges: list of edges representing connections
-    """
-    def __init__(self, data, edges=None):
-        self.data = data
-        if edges is None:
-            self.edges = []
-        else:
-            self.edges = edges
-
-    def add_edge(self, edge):
-        self.edges.append(edge)
-
-    def __str__(self):
-        res = f"{self.data}"
-        res += "None"
-        return res
-
 class Graph:
-    """
-    Main graph data structure 
-    """
-    def __init__(self, nodes=None):
-        if nodes is None:
-            self.nodes = []
-        else:
-            self.nodes = nodes
+    def __init__(self, size):
+        self.size = size
+        self.edges = [[0] * size for _ in range(size)]
+        self.nodes = [''] * size  
 
-    def add_node(self, data, edges=None):
-        """ 
-        Add new named node to the graph
-        """
-        self.nodes.append(Node(data, edges))
+    # Edges in the matrix
+    def add_edge(self, u, v):
+        if 0 <= u < self.size and 0 <= v < self.size:
+            self.edges[u][v] = 1
+            self.edges[v][u] = 1
 
-    def find_node(self, data):
-        """ 
-        Search for nodes
-        """
-        for node in self.nodes:
-            if node.data == data:
-                return node
-        return None
-
-    def add_edge(self, node_from, node_to, weight=1):
-        """
-        Add new edge between two nodes
-        """
-        node_1 = self.find_node(node_from)
-        node_2 = self.find_node(node_to)
-        if (node_1 is not None) and (node_2 is not None):
-            node_1.add_edge((node_1, weight))
-            node_2.add_edge((node_2, weight))
-        else:
-            print("Sorry, one or more nodes were not found")
+    # Nodes or vertices
+    def add_node(self, node, data):
+        if 0 <= node < self.size:
+            self.nodes[node] = data
 
     def print_graph(self):
-        print("\nConnections:")
-        for i in range(len(self.nodes)):
-            print(f"{self.nodes[i]}: ", end="")
-            for j in range(len(self.nodes)):
-                # if self.nodes.edges[i][j]:
-                print(self.nodes[j], end=" ")
-            print()
+        print("\nEdges:")
+        for row in self.edges:
+            print(' '.join(map(str, row)))
+        print("\nNodes:")
+        for node, data in enumerate(self.nodes):
+            print(f"Node {node}: {data}")
 
-    def __str__(self):
-        graph = ""
-        for node in self.nodes:
-            graph += f"{node.__str__()}\n"
-        return graph
+    def check_visited(self, v, visited):
+        visited[v] = True
+        print(self.nodes[v], end=' ')
 
-g = Graph()
+        for i in range(self.size):
+            if self.edges[v][i] == 1 and not visited[i]:
+                self.check_visited(i, visited)
 
-# Add nodes
-g.add_node("John")
-g.add_node("Mary")
+    def dfs(self, node_data):
+        visited = [False] * self.size
+        start_node = self.nodes.index(node_data)
+        self.check_visited(start_node, visited)
+    
+    def bfs(self, start_node):
+        queue = [self.nodes.index(start_node)]
+        visited = [False] * self.size
+        visited[queue[0]] = True
+            
+        while queue:
+            current_node = queue.pop(0)
+            print(self.nodes[current_node], end=' ')
+        
+            for i in range(self.size):
+                if self.edges[current_node][i] == 1 and not visited[i]:
+                    queue.append(i)
+                    visited[i] = True
 
-# Add edges
-g.add_edge("John", "Mary")
+g = Graph(4)
+g.add_node(0, 'A')
+g.add_node(1, 'B')
+g.add_node(2, 'C')
+g.add_node(3, 'D')
+g.add_node(4, 'E')
+g.add_node(5, 'F')
+g.add_node(6, 'G')
+g.add_edge(3, 0)  # D - A
+g.add_edge(0, 2)  # A - C
+g.add_edge(0, 3)  # A - D
+g.add_edge(0, 4)  # A - E
+g.add_edge(4, 2)  # E - C
+g.add_edge(2, 5)  # C - F
+g.add_edge(2, 1)  # C - B
+g.add_edge(2, 6)  # C - G
+g.add_edge(1, 5)  # B - F
+
 g.print_graph()
+
+start_node = 'D'
+print(f"\nDepth First Search starting from {start_node}")
+g.dfs(start_node)
+
+print(f"\nBreadth First Search starting from {start_node}")
+g.bfs(start_node)

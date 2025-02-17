@@ -18,6 +18,6 @@ This is an array-based stack implementation.
 
 This is a `deque()` implementation of a stack
 
-## Linked List
+## Linked List Stack
 
 The linked list has two methods addHead(item) and removeHead() that run in constant time and are very good in implementing stacks

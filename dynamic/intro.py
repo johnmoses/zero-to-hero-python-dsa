@@ -2,12 +2,14 @@
 Pascal Triangle with Dynamic approach
 """
 
+nun_rows = 6
+
 from typing import List
 
-def generate(numRows: int) -> List[List[int]]:
+def generate(nun_rows: int) -> List[List[int]]:
         triangle = []
 
-        for row_num in range(numRows):
+        for row_num in range(nun_rows):
             row = [None for _ in range(row_num + 1)]
             row[0], row[-1] = 1, 1
 
@@ -17,4 +19,4 @@ def generate(numRows: int) -> List[List[int]]:
 
         return triangle
 
-print(generate(5))
+print(generate(nun_rows))

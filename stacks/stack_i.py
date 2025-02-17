@@ -24,11 +24,11 @@ class Stack:
     def top(self):
         return self.data[-1]
 
-    # Insert an element
+    # Insert an item
     def push(self, val):
         self.data.append(val)
 
-    # Remove an element
+    # Remove an item
     def pop(self):
         return self.data.pop()
 
@@ -36,7 +36,9 @@ s = Stack()
 s.push(1)
 s.push(2)
 s.push(3)
+print('Stack: ', s.data)
 print('Size: ', s.getSize())
 print('Pop: ', s.pop())
 print('Top: ', s.top())
+print("isEmpty: ", s.isEmpty())
 print('Size: ', s.getSize())
