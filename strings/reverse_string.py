@@ -1,6 +1,7 @@
 """
 Reverse a String
 """
+s = ["h","e","l","l","o"]
 
 from typing import List
 
@@ -14,5 +15,4 @@ def reverse_string(s: List[str]) -> None:
         left, right = left + 1, right -1
     print(s)
 
-s = ["h","e","l","l","o"]
 print(reverse_string(s))

@@ -1,6 +1,10 @@
 """ 
 Basic math
 """
+a = 2
+b = 3
+n = 18
+
 import math 
 
 def add(a, b):
@@ -19,7 +23,6 @@ def prime_factors(n):
         factors.append(n)
     return factors
 
-a = 2
-b = 3
-print(f"Sum of {a} + {b} is {add(a, b)}")
-print('Prime factors:', prime_factors(100))
+
+print(add(a, b))
+print(prime_factors(n))

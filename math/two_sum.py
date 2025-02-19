@@ -12,24 +12,10 @@ Example:
     Because nums[0] + nums[1] = 2 + 7 = 9,
     return (0, 1)
 """
-
-def two_sum(nums, target):
-    low, high = 0, len(nums) -1
-    while low < high:
-        num = nums[low] + nums[high]
-        if num == target:
-            return (low+1, high+1)
-        elif num < target:
-            low += 1
-        else:
-            high -= 1
-    return [-1, -1]
-
 nums = [2,7,11,15]
 target = 9
-print(two_sum(nums, target))
 
-def two_sum_2(nums, target):
+def two_sum(nums, target):
     # Define a dictionary
     dic = {}
     for i, num in enumerate(nums):
@@ -39,4 +25,4 @@ def two_sum_2(nums, target):
             dic[target - num] = i
     return None
 
-print(two_sum_2(nums, target))
+print(two_sum(nums, target))

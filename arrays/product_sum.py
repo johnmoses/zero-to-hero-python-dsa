@@ -13,11 +13,12 @@ Output: 12
 """
 
 arr = [5, 2, [-7, 1], 3, [6, [-13, 8], 4]]
+depth = 1
 
 def product_sum(arr: list[int | list], depth: int) -> int:
     total_sum = 0
-    for e in arr:
-        total_sum += product_sum(e, depth + 1) if isinstance(e, list) else e
+    for i in arr:
+        total_sum += product_sum(i, depth + 1) if isinstance(i, list) else i
         return total_sum * depth
 
-print(product_sum(arr,1))
+print(product_sum(arr,depth))

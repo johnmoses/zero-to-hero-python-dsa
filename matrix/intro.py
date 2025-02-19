@@ -8,25 +8,29 @@ cols = 3
 # Declaring a matrix of size 3 X 3, and 
 # initializing it with value zero
 rows, cols = (3, 3)
-arr = [[0]*cols]*rows
-print(arr)
+mat1 = [[0]*cols]*rows
+print('Matrix 1: ', mat1)
 
-arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+mat2 = [
+    [1, 2, 3], 
+    [4, 5, 6], 
+    [7, 8, 9]
+];
 
 # Accessing elements of 2-D array
-print("First element of first row:", arr[0][0])
-print("Third element of second row:", arr[1][2])
-print("Second element of third row:", arr[2][1])
+print("Row 1 column 1:", mat2[0][0])
+print("Row 2 column 3:", mat2[1][2])
+print("Row 3 column 2:", mat2[2][1])
 
 # Initializing a 2-D list with values
-arr = [
+mat3 = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12]
 ]
 
 # Traversing each row
-for row in arr:
+for row in mat3:
   
     # Traversing each element
     # in the current row

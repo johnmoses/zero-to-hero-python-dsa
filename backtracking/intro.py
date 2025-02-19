@@ -1,6 +1,9 @@
 """
 Back tracking
 """
+n = 4
+k = 2
+
 from typing import List
 
 def combine(n: int, k: int) -> List[List[int]]:
@@ -20,6 +23,4 @@ def combine(n: int, k: int) -> List[List[int]]:
     backtrack()
     return output
 
-n = 4
-k = 2
 print(combine(n, k))
