@@ -13,7 +13,7 @@ Types of arrays include low level, referential, compact, dynamic arrays.
 - Search
 - Delete
 
-Inserting into array takes many forms
+Inserting into array takes many forms:
 
 - Inserting at the begining
 - Inserting at the end
