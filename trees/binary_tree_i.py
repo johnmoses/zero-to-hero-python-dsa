@@ -1,5 +1,5 @@
-"""
-Basic binary tree with pre-order, in-order and post-order traversals
+""" 
+Binary Tree with in-order traversal
 """
 
 class Node:
@@ -8,57 +8,25 @@ class Node:
         self.left = None
         self.right = None
 
-    def __str__(self):
-        return str(self.data)
-
 class Tree:
-    def __init__(self, root):
-        self.root = root
-
-    def pre_order(self, node):
-        if node:
-            print(node, end=" ")
-            self.pre_order(node.left)
-            self.pre_order(node.right)
-
+    def __init__(self):
+        self.root = None
+        
     def in_order(self, node):
-        if node:
-            self.in_order(node.left)
-            print(node, end=" ")
-            self.in_order(node.right)
+        if node is None:
+            return
+        self.in_order(node.left)
+        print(node.data, end=" ")
+        self.in_order(node.right)
 
-    def post_order(self, node):
-        if node:
-            self.post_order(node.left)
-            self.post_order(node.right)
-            print(node, end=" ")
 
-a = Node("A")   # Root
-b = Node("B")
-c = Node("C")
-d = Node("D")
-e = Node("E")
-f = Node("F")
-g = Node("G")
-
-a.left = b
-a.right = c
-
-b.left = d
-b.right = e
-
-c.left = f
-c.right = g
-
-tree = Tree(a)
-
-print("Preorder Traversal")
-tree.pre_order(a)
-print("\n")
-
-print("Inorder Traversal")
-tree.in_order(a)
-print("\n")
-
-print("Postorder Traversal")
-tree.post_order(a)
+# Create an instance of the tree
+tree = Tree()
+tree.root = Node(1)
+tree.root.left = Node(2)
+tree.root.right = Node(3)
+tree.root.left.left = Node(4)
+tree.root.left.right = Node(5)
+print("In-order traversal: ", end="")
+tree.in_order(tree.root)
+print()

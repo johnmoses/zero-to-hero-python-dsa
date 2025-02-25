@@ -10,9 +10,10 @@ target2 = 'B'
 def binary_search(arr, target):
     # Initialize variables
     left = 0
-    right = len(arr) -1
+    n = len(arr)
+    right = n - 1
 
-    # Iterate over array
+    # Iterate over arr
     while left <= right:
         mid = (left + right) // 2
         if arr[mid] == target:
@@ -29,7 +30,8 @@ print(binary_search(arr2, target2))
 def binary_search_1(arr, target):
     # Initialize variables
     left = 0
-    right = len(arr) -1
+    n = len(arr)
+    right = n - 1
 
     # Iterate over array
     while left < right:
@@ -41,5 +43,5 @@ def binary_search_1(arr, target):
         else:
             right = mid
 
-print(binary_search(arr1, target1))
-print(binary_search(arr2, target2))
+print(binary_search_1(arr1, target1))
+print(binary_search_1(arr2, target2))

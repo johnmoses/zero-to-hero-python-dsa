@@ -10,7 +10,8 @@ target1 = 9
 target2 = 'B'
 
 def linear_search(arr, target):
-    for i in range(len(arr)):
+    n = len(arr)
+    for i in range(n):
         if arr[i] == target:
             return i
     return -1

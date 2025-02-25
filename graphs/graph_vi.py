@@ -1,21 +1,43 @@
 """ 
-Adjacency list graph representation
+Adjacency list graph with OOP approach
 """
+# Number of nodes
+size = 5
 
-print("\nAdjacency List:")
-V = 5   # Number of vertexes or nodes
-edges = [[0, 1], [1, 2], [2, 0],[3, 1], [4, 0]]
-adjacency_list = {}
+class Node:
+    def __init__(self, value):
+        self.vertex = value
+        self.next = None
 
-# Add vertices to the dictionary
-for i in range(V):
-    adjacency_list[i] = []
+class Graph:
+    def __init__(self, size):
+        self.size = size
+        self.nodes = [None] * self.size
 
-# Add edges to the dictionary
-for edge in edges:
-    vertex1, vertex2 = edge
-    adjacency_list[vertex1].append(vertex2)
+    # Add edges
+    def add_edge(self, s, d):
+        node = Node(d)
+        node.next = self.nodes[s]
+        self.nodes[s] = node
 
-# Display the adjacency list
-for vertex, neighbors in adjacency_list.items():
-    print(f"{vertex} -> {' '.join(map(str, neighbors))}")
+        node = Node(s)
+        node.next = self.nodes[d]
+        self.nodes[d] = node
+
+    # Print the graph
+    def print_graph(self):
+        for i in range(self.size):
+            print("Node " + str(i) + ":", end="")
+            temp = self.nodes[i]
+            while temp:
+                print(" -> {}".format(temp.vertex), end="")
+                temp = temp.next
+            print(" \n")
+
+g = Graph(size)
+g.add_edge(0, 1)
+g.add_edge(0, 2)
+g.add_edge(0, 3)
+g.add_edge(1, 2)
+
+g.print_graph()

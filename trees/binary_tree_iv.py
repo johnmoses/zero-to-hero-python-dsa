@@ -1,5 +1,5 @@
 """ 
-Binary Tree
+Binary Tree with dfs and search
 """
 
 class Node:
@@ -35,6 +35,7 @@ c = Node("C")
 a.add_child(b)
 a.add_child(c)
 
+# Let a be the root
 tree = Tree(a)
 tree.dfs(a)
 tree.search('B',a)

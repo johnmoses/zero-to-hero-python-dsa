@@ -10,18 +10,19 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def add(self, data):
-        new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = new_node
+        if self.head is None:
+            node = Node(data)
+            self.head = node
+            self.tail = node
+        else:
+            self.tail.next = Node(data)
+            self.tail = self.tail.next
+        return self.tail
         
-    def print_list(self):
+    def printList(self):
         current_node = self.head
         while current_node:
             print(current_node.data, end=" -> ")
@@ -29,7 +30,7 @@ class LinkedList:
         print("None")
 
 ll = LinkedList()
-ll.add(1)
-ll.add(2)
-ll.add(3)
-ll.print_list()
+ll.add(10)
+ll.add(20)
+ll.add(30)
+ll.printList()

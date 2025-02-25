@@ -1,22 +1,22 @@
 """ 
-Graph with most features
+Undirected adjacency matrix graph with more features
 """
 class Graph:
     def __init__(self, size):
         self.size = size
-        self.edges = [[0] * size for _ in range(size)]
         self.nodes = [''] * size  
+        self.edges = [[0] * size for _ in range(size)]
+
+    # Nodes or vertices
+    def add_node(self, index, data):
+        if 0 <= index < self.size:
+            self.nodes[index] = data
 
     # Edges in the matrix
     def add_edge(self, u, v):
         if 0 <= u < self.size and 0 <= v < self.size:
             self.edges[u][v] = 1
             self.edges[v][u] = 1
-
-    # Nodes or vertices
-    def add_node(self, node, data):
-        if 0 <= node < self.size:
-            self.nodes[node] = data
 
     def print_graph(self):
         print("\nEdges:")
@@ -34,10 +34,10 @@ class Graph:
             if self.edges[v][i] == 1 and not visited[i]:
                 self.check_visited(i, visited)
 
-    def dfs(self, node_data):
+    def dfs(self, start_node):
+        queue = self.nodes.index(start_node)
         visited = [False] * self.size
-        start_node = self.nodes.index(node_data)
-        self.check_visited(start_node, visited)
+        self.check_visited(queue, visited)
     
     def bfs(self, start_node):
         queue = [self.nodes.index(start_node)]
@@ -53,7 +53,7 @@ class Graph:
                     queue.append(i)
                     visited[i] = True
 
-g = Graph(4)
+g = Graph(7)
 g.add_node(0, 'A')
 g.add_node(1, 'B')
 g.add_node(2, 'C')

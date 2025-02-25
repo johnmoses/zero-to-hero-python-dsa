@@ -27,21 +27,21 @@ class Stack:
         return self.head.data
     
     # Insert an item
-    def push(self, data):
-        new_node = Node(data)
+    def push(self, val):
+        node = Node(val)
         if self.head:
-            new_node.next = self.head
-        self.head = new_node
+            node.next = self.head
+        self.head = node
         self.size += 1
     
     # Remove an item
     def pop(self):
         if self.isEmpty():
             return "Stack is empty"
-        popped_node = self.head
+        node = self.head
         self.head = self.head.next
         self.size -= 1
-        return popped_node.data
+        return node.data
 
     # Print stack
     def printStack(self):

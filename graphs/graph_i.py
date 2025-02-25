@@ -1,5 +1,5 @@
 """ 
-Undirected Graph with adjacency matrix representation
+Undirected adjacency matrix graph
 """
 class Graph:
     def __init__(self, size):
@@ -8,9 +8,9 @@ class Graph:
         self.edges = [[0] * size for _ in range(size)]  
 
     # Nodes or vertices
-    def add_node(self, node, data):
-        if 0 <= node < self.size:
-            self.nodes[node] = data
+    def add_node(self, index, data):
+        if 0 <= index < self.size:
+            self.nodes[index] = data
 
     # Edges in the matrix
     def add_edge(self, u, v):
@@ -26,17 +26,17 @@ class Graph:
         for node, data in enumerate(self.nodes):
             print(f"Node {node}: {data}")
 
-g = Graph(4)
+g = Graph(5)
 g.add_node(0, 'A')
 g.add_node(1, 'B')
 g.add_node(2, 'C')
 g.add_node(3, 'D')
-# g.add_node(4, 'E')
+g.add_node(4, 'E')
 
 g.add_edge(0, 1)  # A - B
 g.add_edge(0, 2)  # A - C
 g.add_edge(0, 3)  # A - D
 g.add_edge(1, 2)  # B - C
-# g.add_edge(0, 4)  # A - E
+g.add_edge(0, 4)  # A - E
 
 g.print_graph()

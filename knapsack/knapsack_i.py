@@ -2,6 +2,9 @@
 Knapsack
 Returns the maximum value that can be put in a knapsack of capacity W
 """
+profit = [60, 100, 120]
+weight = [10, 20, 30]
+W = 50
 
 def knapsack(W, wt, val, n):
     K = [[0 for x in range(W + 1)] for x in range(n + 1)]
@@ -20,9 +23,5 @@ def knapsack(W, wt, val, n):
 
     return K[n][W]
 
-if __name__ == '__main__':
-    profit = [60, 100, 120]
-    weight = [10, 20, 30]
-    W = 50
-    n = len(profit)
-    print(knapsack(W, weight, profit, n))
+n = len(profit)
+print(knapsack(W, weight, profit, n))

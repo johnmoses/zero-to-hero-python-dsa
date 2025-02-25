@@ -1,5 +1,5 @@
 """
-Singly Linked List operations
+Singly Linked List with custom insertion
 """
 
 class Node:
@@ -24,27 +24,19 @@ class LinkedList:
         values = [str(x.data) for x in self]
         return ' -> '.join(values)
 
-    def __len__(self):
-        result = 0
-        node = self.head
-        while node: 
-            result += 1
-            node = node.next
-        return result
-
     def getSize(self):
         size = 0
-        current_node = self.head
-        while current_node:
+        node = self.head
+        while node:
             size += 1
-            current_node = current_node.next
+            node = node.next
         return size
 
-    def printAll(self):
-        current_node = self.head
-        while current_node:
-            print(current_node.data)
-            current_node = current_node.next
+    def printList(self):
+        node = self.head
+        while node:
+            print(node.data)
+            node = node.next
 
     def insertAtStart(self, data):
         node = Node(data)
@@ -156,7 +148,7 @@ ll = LinkedList()
 ll.insertAtStart(20)
 ll.insertAtIndex(23,1)
 ll.insertAtEnd(30)
-ll.updateNode(24,1)
+ll.updateNode(24,2)
+ll.printList()
 
 print(ll)
-print(len(ll))

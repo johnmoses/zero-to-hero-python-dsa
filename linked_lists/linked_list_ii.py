@@ -1,5 +1,5 @@
 """
-Singly Linked List class
+Singly Linked List class with more functions
 """
 
 class Node:
@@ -26,12 +26,12 @@ class LinkedList:
         return ' -> '.join(values)
 
     def __len__(self):
-        result = 0
+        size = 0
         node = self.head
         while node: 
-            result += 1
+            size += 1
             node = node.next
-        return result
+        return size
 
     def add(self, data):
         if self.head is None:
@@ -44,9 +44,10 @@ class LinkedList:
         return self.tail
 
 ll = LinkedList()
+ll.add(10)
 ll.add(20)
 ll.add(30)
-ll.add(40)
 
+# Call special functions
 print(ll)
 print(len(ll))

@@ -27,34 +27,34 @@ class Queue:
             return "Queue is empty"
         return self.front.data
     
-    # Insert an item
-    def enqueue(self, element):
-        new_node = Node(element)
+    # Insert an item or value
+    def enqueue(self, val):
+        node = Node(val)
         if self.rear is None:
-            self.front = self.rear = new_node
+            self.front = self.rear = node
             self.length += 1
             return
-        self.rear.next = new_node
-        self.rear = new_node
+        self.rear.next = node
+        self.rear = node
         self.length += 1
     
     # Remove an item
     def dequeue(self):
         if self.isEmpty():
             return "Queue is empty"
-        temp = self.front
-        self.front = temp.next
+        node = self.front
+        self.front = node.next
         self.length -= 1
         if self.front is None:
             self.rear = None
-        return temp.data
+        return node.data
 
     # Print queue
     def printQueue(self):
-        temp = self.front
-        while temp:
-            print(temp.data, end=" ")
-            temp = temp.next
+        node = self.front
+        while node:
+            print(node.data, end=" ")
+            node = node.next
         print()
 
 q = Queue()

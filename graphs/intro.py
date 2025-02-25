@@ -10,7 +10,7 @@ edges = [
     [1, 0, 1, 0, 0],  # Edges for B
     [1, 1, 0, 0, 0],  # Edges for C
     [1, 0, 0, 0, 0],  # Edges for D
-    [0, 0, 0, 0, 1]   # Edges for E
+    [0, 1, 0, 0, 1]   # Edges for E
 ]
 
 # Adjacency matrix

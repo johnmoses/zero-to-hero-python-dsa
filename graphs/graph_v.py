@@ -1,22 +1,28 @@
-'''
-Dictionary based graph representation
-This is a directed, cyclic graph stored as a dictionary
-the keys leads to nodes
-'''
+""" 
+Adjacency list graph
+"""
+# Number of nodes or vertices
+size = 4
 
-Graph = {
-    'A': ['B','E','G'],
-    'B': ['C'],
-    'C': ['D','E'],
-    'D': ['F'],
-    'E': ['C','F','G'],
-    'F': [''],
-    'G': ['A']
-}
+def add_edge(adj, i, j):
+    adj[i].append(j)
+    adj[j].append(i)  # Undirected
 
-def tests(searcher):
-    print(searcher('E', 'D', Graph))
-    for x in ['AG', 'GF', 'BA', 'DA']:
-        print(x, searcher(x[0], x[1], Graph))
+def display_adj_list(adj):
+    for i in range(len(adj)):
+        print(f"{i}: ", end="")
+        for j in adj[i]:
+            print(j, end=" ")
+        print()
 
-print(tests)
+# Create a graph with specified size or nodes and no edges
+adj = [[] for _ in range(size)]
+
+# Add edges one by one
+add_edge(adj, 0, 1)
+add_edge(adj, 0, 2)
+add_edge(adj, 1, 2)
+add_edge(adj, 2, 3)
+
+print("Adjacency List Graph:")
+display_adj_list(adj)

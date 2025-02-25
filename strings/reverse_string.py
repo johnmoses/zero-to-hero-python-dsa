@@ -15,4 +15,8 @@ def reverse_string(s: List[str]) -> None:
         left, right = left + 1, right -1
     print(s)
 
+def reverse_string_1(s: List[str]) -> None:
+    return s[::-1]
+
 print(reverse_string(s))
+print(reverse_string_1(s))

@@ -2,6 +2,10 @@
 Knapsack 
 Using dynamic programming approach
 """
+profit = [60, 100, 120]
+weight = [10, 20, 30]
+W = 50
+
 def knapsack(W, wt, val, n):
     
     # Making the dp array
@@ -22,9 +26,5 @@ def knapsack(W, wt, val, n):
     # Returning the maximum value of knapsack
     return dp[W]
 
-if __name__ == '__main__':
-    profit = [60, 100, 120]
-    weight = [10, 20, 30]
-    W = 50
-    n = len(profit)
-    print(knapsack(W, weight, profit, n))
+n = len(profit)
+print(knapsack(W, weight, profit, n))

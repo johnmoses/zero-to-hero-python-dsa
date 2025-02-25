@@ -1,27 +1,51 @@
-""" 
-Adjacency list representation
-"""
+'''
+Directed, cyclic, dictionary graph representation
+The keys leads to nodes
+'''
 
-def add_edge(adj, i, j):
-    adj[i].append(j)
-    adj[j].append(i)  # Undirected
+graph = { 
+    'a': ['c'], 
+    'b': ['d'], 
+    'c': ['e'], 
+    'd': ['a', 'd'], 
+    'e': ['b', 'c'] 
+} 
 
-def display_adj_list(adj):
-    for i in range(len(adj)):
-        print(f"{i}: ", end="")
-        for j in adj[i]:
-            print(j, end=" ")
-        print()
+def find_path(graph, start, end, path=[]): 
+    path = path + [start] 
+    if start == end: 
+        return path 
+    for node in graph[start]: 
+        if node not in path: 
+            newpath = find_path(graph, node, end, path) 
+            if newpath: 
+                return newpath 
 
-# Create a graph with 4 vertices and no edges
-V = 4
-adj = [[] for _ in range(V)]
+def find_all_paths(graph, start, end, path =[]): 
+    path = path + [start] 
+    if start == end: 
+        return [path] 
+    paths = [] 
+    for node in graph[start]: 
+        if node not in path: 
+            newpaths = find_all_paths(graph, node, end, path) 
+        for newpath in newpaths: 
+            paths.append(newpath) 
+    return paths 
 
-# Add edges one by one
-add_edge(adj, 0, 1)
-add_edge(adj, 0, 2)
-add_edge(adj, 1, 2)
-add_edge(adj, 2, 3)
+def find_shortest_path(graph, start, end, path =[]): 
+		path = path + [start] 
+		if start == end: 
+			return path 
+		shortest = None
+		for node in graph[start]: 
+			if node not in path: 
+				newpath = find_shortest_path(graph, node, end, path) 
+				if newpath: 
+					if not shortest or len(newpath) < len(shortest): 
+						shortest = newpath 
+		return shortest 
 
-print("Adjacency List Graph:")
-display_adj_list(adj)
+print(find_path(graph, 'd', 'c')) 
+print(find_all_paths(graph, 'd', 'c')) 
+print(find_shortest_path(graph, 'd', 'c')) 

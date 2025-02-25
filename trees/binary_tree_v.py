@@ -1,5 +1,5 @@
 """ 
-Array implementation of binary tree
+Binary Tree from array
 """
 
 binary_tree_array = ['R', 'A', 'B', 'C', 'D', 'E', 'F', None, None, None, None, None, None, 'G']

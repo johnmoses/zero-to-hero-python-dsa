@@ -13,6 +13,11 @@ weight[i] >= 0
 Calculate the maximum profit that the shopkeeper can make given maxmum weight that can
 be carried.
 """
+weights = [3 ,4 , 5]
+values = [10, 9 , 8]
+number_of_items = 3
+max_weight = 25
+index = 0
 
 def knapsack(
     weights: list,
@@ -33,4 +38,5 @@ def knapsack(
         )
     return max(ans1, ans2)
 
-print(knapsack([3 ,4 , 5], [10, 9 , 8], 3, 25, 0))
+print(knapsack(weights, values, number_of_items, max_weight, index))
+# 27
