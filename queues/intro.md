@@ -11,12 +11,6 @@ Other methods are `first(), is_empty(), len(Q)`.
 
 This is a special type of queues that has a slight departure from the reqular queue policy. Here some very important exceptions are acommodated for insertion or removal of elements from the queues.
 
-## Heaps
-
-A heap is an improvement over priority queue that achieves a faster and more efficient data structure.
-
-There are many ways of creating queues, popular ones include array, queues, deque queues, and linked list queues
-
 ## Array Queue
 
 This is an array-based queue implementation
@@ -28,3 +22,9 @@ This is a `deque()` implementation of a queue
 ## Linked List Queues
 
 This uses linked list for queue implementation
+
+## Heaped Queues
+
+This a queue based on a tree data structure. It is an improvement over priority queue that achieves a faster and more efficient data structure.
+
+There are many ways of creating queues, popular ones include array, queues, deque queues, and linked list queues

@@ -3,7 +3,7 @@ Binary Tree from dictionary
 """
 dct = [15, 10, 8, 12, 20, 16, 25] 
 
-class TreeNode:
+class Node:
     def __init__(self, x, left= None, right = None):
         self.val = x
         self.left = left
@@ -17,7 +17,7 @@ def build_tree(data):
 
     # Create our tree object from the root and then
     # add it to a list of nodes that we can add data to
-    tree = TreeNode(data[0])
+    tree = Node(data[0])
     queue = [data[0]]    
 
     # Iterate over the rest of the nodes and add
@@ -31,7 +31,7 @@ def build_tree(data):
         if data[i] != None:
 
             # Create the node from the data
-            node = TreeNode(data[i])
+            node = Node(data[i])
 
             # If the index we're looking at is even
             # then we have a left branch; otherwise we

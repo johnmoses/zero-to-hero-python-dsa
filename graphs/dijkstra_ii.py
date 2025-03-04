@@ -1,13 +1,18 @@
 """
 Dijkistra Graph
-Shortest path solutions
+Shortest path solution
 """
 
 class Graph:
     def __init__(self, size):
         self.size = size
-        self.edges = [[0] * size for _ in range(size)]
         self.nodes = [''] * size  
+        self.edges = [[0] * size for _ in range(size)]
+
+    # Nodes or vertices
+    def add_node(self, index, data):
+        if 0 <= index < self.size:
+            self.nodes[index] = data
 
     # Edges in the matrix
     def add_edge(self, u, v, weight):
@@ -15,15 +20,11 @@ class Graph:
             self.edges[u][v] = weight
             self.edges[v][u] = weight
 
-    # Nodes or vertices
-    def add_node(self, node, data):
-        if 0 <= node < self.size:
-            self.nodes[node] = data
-
-    def dijkstra(self, node_data):
-        start_node = self.nodes.index(node_data)
+    # Find shortest path from start node
+    def dijkstra(self, data):
+        node = self.nodes.index(data)
         distances = [float('inf')] * self.size
-        distances[start_node] = 0
+        distances[node] = 0
         visited = [False] * self.size
 
         for _ in range(self.size):
@@ -57,6 +58,7 @@ g.add_node(4, 'E')
 g.add_node(5, 'F')
 g.add_node(6, 'G')
 
+# Edges with weights (distances)
 g.add_edge(3, 0, 4)  # D - A, weight 5
 g.add_edge(3, 4, 2)  # D - E, weight 2
 g.add_edge(0, 2, 3)  # A - C, weight 3
@@ -68,8 +70,8 @@ g.add_edge(2, 1, 2)  # C - B, weight 2
 g.add_edge(1, 5, 2)  # B - F, weight 2
 g.add_edge(6, 5, 5)  # G - F, weight 5
 
-# Dijkstra's algorithm from D to all vertices
-print("\nDijkstra's Algorithm starting from vertex D:")
-distances = g.dijkstra('D')
+# Dijkstra's algorithm from selected node to all nodes
+start_node = "B"
+distances = g.dijkstra(start_node)
 for i, d in enumerate(distances):
-    print(f"Distance from D to {g.nodes[i]}: {d}")
+    print(f"Distance from {start_node} to {g.nodes[i]}: {d}")

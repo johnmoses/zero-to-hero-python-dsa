@@ -1,7 +1,15 @@
 """
 Dijkistra Graph
+Shortest path solution
 """
-
+G = {
+    "A": [["B", 2], ["C", 5]],
+    "B": [["A", 2], ["D", 3], ["E", 1], ["F", 1]],
+    "C": [["A", 5], ["F", 3]],
+    "D": [["B", 3]],
+    "E": [["B", 4], ["F", 3]],
+    "F": [["C", 3], ["E", 3]],
+}
 import heapq
 
 def dijkstra(graph, start, end):
@@ -24,14 +32,4 @@ def dijkstra(graph, start, end):
             heapq.heappush(heap, (next, v))
     return -1
 
-G = {
-    "A": [["B", 2], ["C", 5]],
-    "B": [["A", 2], ["D", 3], ["E", 1], ["F", 1]],
-    "C": [["A", 5], ["F", 3]],
-    "D": [["B", 3]],
-    "E": [["B", 4], ["F", 3]],
-    "F": [["C", 3], ["E", 3]],
-}
-
-shortest_path = dijkstra(G, "E", "F")
-print(shortest_path)
+print(dijkstra(G, "E", "F"))

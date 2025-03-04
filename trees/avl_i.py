@@ -2,7 +2,7 @@
 AVL Tree
 """
 
-class TreeNode:
+class Node:
     def __init__(self, data):
         self.data = data
         self.left = None
@@ -41,7 +41,7 @@ def leftRotate(x):
 
 def insert(node, data):
     if not node:
-        return TreeNode(data)
+        return Node(data)
 
     if data < node.data:
         node.left = insert(node.left, data)
