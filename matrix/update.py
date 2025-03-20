@@ -4,8 +4,7 @@ Update matrix
 
 from typing import List
 
-class Solution:
-    def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+def updateMatrix(mat: List[List[int]]) -> List[List[int]]:
         m, n = len(mat), len(mat[0])
         for i, row in enumerate(mat):
             for j, cell in enumerate(row):
@@ -20,8 +19,7 @@ class Solution:
                     right = mat[i][j+1] if j < n - 1 else float('inf')
                     mat[i][j] = min(cell, bottom + 1, right + 1)
         return mat
+    
 
-if  __name__ == "__main__":
-    mat = [[0,0,0],[0,1,0],[0,0,0]]
-    sn = Solution()
-    print(sn.updateMatrix(mat))
+mat = [[0,0,0],[0,1,0],[0,0,0]]
+print(updateMatrix(mat))

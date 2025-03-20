@@ -1,58 +1,45 @@
 """
-Bit manipulation operations
+Bit manipulation
+
+Design bit manipulation system for
+- Checking if a number is even
+- Checking if a number is odd
+- Counting the number of set bits in a number
+- Finding the number of trailing zeros in a number
+- Reversing bits
 """
+class BitManipulation:
+    def is_even(self, num):
+        return (num & 1) == 0
 
-def get_bit(num, i):
-    return (num & (1 << i)) != 0
-    
-def set_bit(number: int, position: int) -> int:
-    """
-    Set the bit at position to 1
-    """
-    return number | (1 << position)
+    def is_odd(self, num):
+        return (num & 1) == 1
 
-def clear_bit(number: int, position: int) -> int:
-    """
-    Set the bit at position to 0.
+    def count_set_bits(self, num):
+        count = 0
+        while num:
+            count += num & 1
+            num >>= 1
+        return count
 
-    Details: perform bitwise and for given number and X.
-    Where X is a number with all the bits - ones and bit on given
-    position - zero.
-    """
-    return number & ~(1 << position)
+    def find_trailing_zeros(self, num):
+        count = 0
+        while (num & 1) == 0:
+            count += 1
+            num >>= 1
+        return count
 
-def flip_bit(number: int, position: int) -> int:
-    """
-    Flip the bit at position.
+    def reverse_bits(self, num):
+        reversed_num = 0
+        while num:
+            reversed_num <<= 1
+            reversed_num |= num & 1
+            num >>= 1
+        return reversed_num
 
-    Details: perform bitwise xor for given number and X.
-    Where X is a number with all the bits - zeroes and bit on given
-    position - one.
-    """
-    return number ^ (1 << position)
-
-def is_bit_set(number: int, position: int) -> bool:
-    """
-    Is the bit at position set?
-
-    Details: Shift the bit at position to be the first (smallest) bit.
-    Then check if the first bit is set by anding the shifted number with 1.
-    """
-    return ((number >> position) & 1) == 1
-
-def get_bit(number: int, position: int) -> int:
-    """
-    Get the bit at the given position
-
-    Details: perform bitwise and for the given number and X,
-    Where X is a number with all the bits - zeroes and bit on given position - one.
-    If the result is not equal to 0, then the bit on the given position is 1, else 0.
-
-    """
-    return int((number & (1 << position)) != 0)
-
-print(set_bit(0b1111, 1))
-print(clear_bit(0b0, 5))
-print(flip_bit(0b101, 0))
-print(is_bit_set(0b0, 17))
-print(get_bit(0b1010, 3))
+bm = BitManipulation()
+print(bm.is_even(4))  # True
+print(bm.is_odd(5))   # True
+print(bm.count_set_bits(7))  # 3
+print(bm.find_trailing_zeros(16))  # 4
+print(bm.reverse_bits(10))  # 5 (binary: 1010 -> 0101)

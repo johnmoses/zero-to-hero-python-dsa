@@ -1,20 +1,25 @@
 """
-Reverse String
+Write a Function that can reverse a string using stack data structure
 """
+def reverse_string_1(string):
+    stack = []
+    for char in string:
+        stack.append(char)
+    reversed_string = ""
+    while stack:
+        reversed_string += stack.pop()
+    return reversed_string
 
-from intro import Stack
+print(reverse_string_1("MAPS"))
 
-# Function that can reverse a string using stack data structure
-def reverse_string(s):
-    stack = Stack()
+def reverse_string_2(s):
+    stack = []
 
     for ch in s:
-        stack.push(ch)
+        stack.append(ch)
     revstr = ''
-    while stack.size()!=0:
+    while len(stack)!=0:
         revstr += stack.pop()
     return revstr
 
-if __name__ == '__main__':
-    s = "MAPS"
-    print(reverse_string(s))
+print(reverse_string_2("MAPS"))

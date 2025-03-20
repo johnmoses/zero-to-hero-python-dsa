@@ -15,7 +15,7 @@ mat2 = [
     [1, 2, 3], 
     [4, 5, 6], 
     [7, 8, 9]
-];
+]
 
 # Accessing elements of 2-D array
 print("Row 1 column 1:", mat2[0][0])

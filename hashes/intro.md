@@ -6,8 +6,8 @@ Common hashing algorithms includes MDS, SHA, SHA256 and Luhn
 
 ## Hash Tables
 
-This is a practical implementation of a map data structure
-Hash Table is a data structure which organizes data using hash functions in order to support quick insertion and search.
+A hash table is a list of paired values. It is a practical implementation of a map data structure.
+It organizes data using hash functions in order to support quick insertion, removal, search, look-up.
 
 Types of Hash Tables
 
@@ -40,4 +40,4 @@ This is another implementation of maps
 
 ## Sets
 
-Another implementation of maps
+Another implementation of maps. Set operations including add, remove, and lookup are highly efficient, in a constant time O(1)

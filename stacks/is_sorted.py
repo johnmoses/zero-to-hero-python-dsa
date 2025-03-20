@@ -10,9 +10,6 @@ bottom [1, 2, 3, 4, 5, 6] top
 The function should return true
 """
 
-stack = [6, 3, 5, 1, 2, 4]
-stack1 = [1, 2, 3, 4, 5, 6]
-
 def is_sorted(stack):
     lookup = []
     for i in range(len(stack)):
@@ -31,4 +28,4 @@ def is_sorted(stack):
     
     return True
 
-print(is_sorted(stack1))
+print(is_sorted([6, 3, 5, 1, 2, 4]))

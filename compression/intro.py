@@ -1,61 +1,46 @@
 """ 
-Huffman coding
+Data compression
+
+Write a basic data compression algorithm that takes a string and compresses it using the following rules:
+    Consecutive duplicate characters are replaced with a single instance of the character followed by the number of times it appears in the string.
+For example, the string "aaaabbccccc" would be compressed to "a4b2c5".
+The function should take a string as input and return the compressed version of the string.
+
+Note: You can assume that the input string will only contain lowercase alphabets.
+Examples:
+    >>> compress("aaaabbccccc")
+    'a4b2c5'
+    >>> compress("abc")
+    'abc'
 """
 
-class Node:
-    def __init__(self, char=None, freq=0):
-        self.char = char
-        self.freq = freq
-        self.left = None
-        self.right = None
+def compress(string):
+    """
+    Compresses a string by replacing consecutive duplicate characters with a single instance of the character followed by the number of times it appears in the string.
 
-nodes = []
+    Args:
+        string (str): The input string to be compressed.
 
-def calculate_frequencies(word):
-    frequencies = {}
-    for char in word:
-        if char not in frequencies:
-            freq = word.count(char)
-            frequencies[char] = freq
-            nodes.append(Node(char, freq))
+    Returns:
+        str: The compressed string.
+    """
+    compressed = ""  # Initialize an empty string to store the compressed version
+    count = 1  # Initialize the count of consecutive characters to 1
 
-def build_huffman_tree():
-    while len(nodes) > 1:
-        nodes.sort(key=lambda x: x.freq)
-        left = nodes.pop(0)
-        right = nodes.pop(0)
-        
-        merged = Node(freq=left.freq + right.freq)
-        merged.left = left
-        merged.right = right
-        
-        nodes.append(merged)
+    # Iterate over the characters in the string, starting from the second character
+    for i in range(len(string)-1):
+        # If the current character is the same as the next character
+        if string[i] == string[i+1]:
+            count += 1  # Increment the count of consecutive characters
+        else:
+            # If the current character is different from the next character
+            compressed = compressed + string[i] + str(count)  # Append the current character and its count to the compressed string
+            count = 1  # Reset the count of consecutive characters to 1
 
-    return nodes[0]
+    # Append the last character and its count to the compressed string
+    compressed = compressed + string[i+1] + str(count)
 
-def generate_huffman_codes(node, current_code, codes):
-    if node is None:
-        return
+    return compressed  # Return the compressed string
 
-    if node.char is not None:
-        codes[node.char] = current_code
-
-    generate_huffman_codes(node.left, current_code + '0', codes)
-    generate_huffman_codes(node.right, current_code + '1', codes)
-
-def huffman_encoding(word):
-    global nodes
-    nodes = []
-    calculate_frequencies(word)
-    root = build_huffman_tree()
-    codes = {}
-    generate_huffman_codes(root, '', codes)
-    return codes
-
-word = "lossless"
-codes = huffman_encoding(word)
-encoded_word = ''.join(codes[char] for char in word)
-
-print("Word:", word)
-print("Huffman code:", encoded_word)
-print("Conversion table:", codes)
+print(compress("aaaabbccccc"))
+print(compress("abc"))

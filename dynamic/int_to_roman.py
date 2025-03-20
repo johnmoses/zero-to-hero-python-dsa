@@ -5,12 +5,28 @@ I can be placed before V (5) and X (10) to make 4 and 9.
 X can be placed before L (50) and C (100) to make 40 and 90. 
 C can be placed before D (500) and M (1000) to make 400 and 900.
 Given an integer, convert it to a roman numeral.
-
-11/22/2021 14:25
 """
 
-class Solution:
-    def intToRoman(self, num: int) -> str:
+def intToRoman1(num: int) -> str:
+    # List of tuples containing the Roman numeral symbols and their corresponding integer values
+    roman = {1000: 'M', 900: 'CM', 500: 'D', 400: 'CD', 100: 'C', 90: 'XC', 50: 'L', 40: 'XL', 10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'}
+    
+    # Variable to store the final Roman numeral string
+    res = ''
+    
+    # Iterate through the list of tuples
+    for i in roman:
+        # While the current integer value is less than or equal to the input number
+        while i <= num:
+            # Subtract the current integer value from the input number
+            num -= i
+            # Append the corresponding Roman numeral symbol to the result string
+            res += roman[i]
+    
+    # Return the final Roman numeral string
+    return res
+
+def intToRoman2(num: int) -> str:
         digits = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"), 
                   (90, "XC"), (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), 
                   (5, "V"), (4, "IV"), (1, "I")]
@@ -19,12 +35,13 @@ class Solution:
         # Loop through each symbol.
         for value, symbol in digits:
             # We don't want to continue looping if we're done.
-            if num == 0: break
+            if num == 0: 
+                break
             count, num = divmod(num, value)
             # Append "count" copies of "symbol" to roman_digits.
             roman_digits.append(symbol * count)
         return "".join(roman_digits)
 
-num = 9
-sn = Solution()
-print(sn.intToRoman(num))
+print(intToRoman1(5))
+print(intToRoman2(5))
+

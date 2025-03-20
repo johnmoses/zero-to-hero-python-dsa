@@ -1,4 +1,4 @@
-705 Design a HashSet without using any built-in hash table libraries.
+# 705 Design a HashSet without using any built-in hash table libraries
 
 Implement HashSet class:
 
@@ -10,4 +10,3 @@ Constraints:
 
 0 <= key <= 106
 At most 104 calls will be made to add, remove, and contains.
-

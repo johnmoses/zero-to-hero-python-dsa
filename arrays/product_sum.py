@@ -8,17 +8,27 @@ the product sum is x + 2 * (y + z). In the array [x, [y, [z]]],
 the product sum is x + 2 * (y + 3z).
 
 Example Input:
-[5, 2, [-7, 1], 3, [6, [-13, 8], 4]]
-Output: 12
-"""
-
 arr = [5, 2, [-7, 1], 3, [6, [-13, 8], 4]]
 depth = 1
+Output: 12
+"""
+def productSum1(array, level=1):
+    """
+    Calculate product sum of special array with nested elements
+    """
+    total = 0
+    for element in array:
+        if isinstance(element, list):
+            total += productSum1(element, level + 1)
+        else:
+            total += element
+    return total * level
 
-def product_sum(arr: list[int | list], depth: int) -> int:
+def productSum2(arr: list[int | list], depth: int) -> int:
     total_sum = 0
     for i in arr:
-        total_sum += product_sum(i, depth + 1) if isinstance(i, list) else i
+        total_sum += productSum2(i, depth + 1) if isinstance(i, list) else i
         return total_sum * depth
 
-print(product_sum(arr,depth))
+print(productSum1([5, 2, [-7, 1], 3, [6, [-13, 8], 4]],1))
+print(productSum2([5, 2, [-7, 1], 3, [6, [-13, 8], 4]],1))

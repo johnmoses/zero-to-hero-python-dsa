@@ -14,6 +14,4 @@ def longest_increasing_subsequence(sequence):
                 counts[i] = max(counts[i], counts[j] + 1)
     return max(counts)
 
-if __name__ == "__main__":
-    sequence = [1, 101, 10, 2, 3, 100, 4, 6, 2]
-    print(longest_increasing_subsequence(sequence))
+print(longest_increasing_subsequence([1, 101, 10, 2, 3, 100, 4, 6, 2]))

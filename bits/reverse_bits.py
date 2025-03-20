@@ -2,7 +2,7 @@
 Reverse Bits
 """
 
-class Solution:
+class Bit1:
     def reverseBits(self, n: int) -> int:
         ret, power = 0, 31
         while n:
@@ -11,11 +11,8 @@ class Solution:
             power -= 1
         return ret
 
-# n = 00000010100101000001111010011100
-# Output:    964176192 (00111001011110000010100101000000)
 
-
-class Solution1:
+class Bit2:
     # @param n, an integer
     # @return an integer
     def reverseBits(self, n):
@@ -31,3 +28,8 @@ class Solution1:
         if byte not in cache:
             cache[byte] = (byte * 0x0202020202 & 0x010884422010) % 1023 
         return cache[byte]
+
+bt1 = Bit1()
+bt2 = Bit2()
+print(bt1.reverseBits(43261596))
+print(bt2.reverseBits(43261596))

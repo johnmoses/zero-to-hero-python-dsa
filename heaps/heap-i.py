@@ -1,5 +1,5 @@
-"""
-Heaps
+""" 
+Heap data structure
 """
 
 import heapq

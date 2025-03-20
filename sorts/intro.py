@@ -1,15 +1,28 @@
 """
-Simple Bubble Sort Algorithm
-Given an integer array nums sorted in non-decreasing order, 
-return an array of the squares of each number sorted in non-decreasing order
+Simple Sort Algorithm
+
+Write a basic sort algorithm that takes a list of numbers and returns a sorted list.
+
+This code defines a function `sort` that takes a list of numbers as input and returns a sorted list.
+The `sort` function uses the built-in `sorted` function to sort the input list.
+
+Sample Input:
+    nums = [1, 5, 2, 3, 4]
+
+Sample Output:
+    [1, 2, 3, 4, 5]
 """
 
-arr = [64, 34, 25, 12, 22, 11, 90, 5]
+def sort(nums):
+    """
+    Sort a list of numbers in ascending order.
 
-n = len(arr)
-for i in range(n-1):
-    for j in range(n-i-1):
-        if arr[j] > arr[j+1]:
-            arr[j], arr[j+1] = arr[j+1], arr[j]
+    Args:
+        nums (list): A list of numbers to be sorted.
 
-print("Sorted array:", arr)
+    Returns:
+        list: A new list containing the sorted numbers.
+    """
+    return sorted(nums)
+
+print(sort([1, 5, 2, 3, 4]))
