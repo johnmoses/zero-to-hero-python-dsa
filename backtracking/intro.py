@@ -37,8 +37,7 @@ def solveNQueens(n):
     return solutions
 
 # Example usage:
-n = 4
-solutions = solveNQueens(n)
+solutions = solveNQueens(4)
 for solution in solutions:
     for row in solution:
         print(row)

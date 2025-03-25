@@ -2,6 +2,18 @@
 Tribonacci sequence using dynamic programming
 
 Return first n tribonacci numbers
+
+Tribonacci numbers is a sequence such that
+each number is the sum of the three preceeding ones starting from 0, 0 and 1
+So we have 0, 0, 1, 1, 2, 4, 7
+
+Sample 1:
+    Input 5
+    Output: [0, 0, 1, 1, 2]
+
+Sample 2:
+    Input: 7
+    Output:  [0, 0, 1, 1, 2, 4, 7]
 """
 
 def tribonacci1(n):

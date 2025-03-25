@@ -3,6 +3,11 @@ Merge Sort
 This is a divide-and-conquer algorithm that sorts an array 
 by first breaking it down into smaller arrays, 
 and then building the array back together the correct way so that it is sorted.
+
+Sample Input: [3, 7, 6, -10, 15, 23.5, 55, -13]
+
+Sample Output:
+    [-13, -10, 3, 6, 7, 15, 23.5, 55]
 """
 
 def merge_sort(arr):
@@ -35,6 +40,4 @@ def merge(left, right):
 
     return result
 
-arr = [3, 7, 6, -10, 15, 23.5, 55, -13]
-sorted_arr = merge_sort(arr)
-print("Sorted:", sorted_arr)
+print(merge_sort([3, 7, 6, -10, 15, 23.5, 55, -13]))

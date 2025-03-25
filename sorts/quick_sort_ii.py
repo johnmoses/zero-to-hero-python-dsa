@@ -1,10 +1,14 @@
 """ 
 Quick Sort
+
+Sample Input: [64, 34, 25, 12, 22, 11, 90, 5]
+
+Sample Output: [5, 11, 12, 22, 25, 34, 64, 90]
 """
 
 # Find the partition position
 def partition(array, low, high):
-
+    
     # Choose the rightmost item as pivot
     pivot = array[high]
 
@@ -46,10 +50,3 @@ def quickSort(array, low, high):
         # Recursive call on the right of pivot
         quickSort(array, pi + 1, high)
 
-
-arr = [64, 34, 25, 12, 22, 11, 90, 5]
-size = len(arr)
-
-quickSort(arr, 0, size - 1)
-
-print(arr)

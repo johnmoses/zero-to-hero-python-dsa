@@ -1,51 +1,63 @@
 """ 
 Hashes
 
-Write a basic example of hash data structure
-
-Create a set of strings, integers, and mixed data type, and demonstrate the following operations:
-    
-    Add an item to the set
-    Check if an item exists in the set
-    Remove an item from the set
-    Create a dictionary using { }
-    Create a dictionary using dict() constructor
-    Access an item
-    Access an item using dictionary key
-    Access an item using dictionary key and default value
-
-Note: The dictionary key can be any immutable data type (like string, integer, float, tuple, etc.) and the value can be any data type.
+Write a basic implementation of hash map with a hash function.
+Give step by step explanations.
 """
+class HashMap:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.table = [None] * capacity
+        self.size = 0
 
-# Set of strings
-s1 = {"welcome", "To", "Sets"}
-print('s1', s1)
+    def hash_function(self, key):
+        """
+        A simple hash function that uses the built-in hash() function and modulo operator.
+        """
+        return hash(key) % self.capacity
 
-#Set of Integers
-s2 = {1,2,3,4,5}
-print ('s2: ', s2)
+    def insert(self, key, value):
+        """
+        Inserts a key-value pair into the hash map.
+        Handles collisions using separate chaining.
+        """
+        index = self.hash_function(key)
+        if self.table[index] is None:
+            self.table[index] = [(key, value)]
+        else:
+            self.table[index].append((key, value))
+        self.size += 1
 
-#Set of Mixed Data type 
-s3 = {"Welcome", "To", "Sets", (1,2,3), 5, 6}
-print('s3: ', s3)
+    def get(self, key):
+        """
+        Retrieves the value associated with the given key.
+        Returns None if the key is not found.
+        """
+        index = self.hash_function(key)
+        if self.table[index] is not None:
+            for k, v in self.table[index]:
+                if k == key:
+                    return v
+        return None
 
-s4 = set(("dogs", "cats", "parrots"))
-print('s4: ', s4)
+    def delete(self, key):
+        """
+        Deletes the key-value pair associated with the given key.
+        Returns True if the key was found and deleted, False otherwise.
+        """
+        index = self.hash_function(key)
+        if self.table[index] is not None:
+            for i, (k, v) in enumerate(self.table[index]):
+                if k == key:
+                    del self.table[index][i]
+                    self.size -= 1
+                    return True
+        return False
 
-s5 = set([1, 2, 3, 3, 4])
-print('s5: ', s5)
+    def __len__(self):
+        """
+        Returns the number of key-value pairs in the hash map.
+        """
+        return self.size
 
-# Access item
-print ("welcome" in s1)
 
-# Remove item
-s1.remove ("welcome")
-print('Removed first element: ', s1)
-
-# create dictionary using { }
-d1 = {1: 'One', 2: 'Two', 3: 'Three'}
-print('d1: ', d1)
-
-# create dictionary using dict() constructor
-d2 = dict(a = "One", b = "Two", c = "Three")
-print('d2: ', d2)

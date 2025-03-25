@@ -13,7 +13,7 @@ def F(n):
         
 computation_count_mem = 0
 def F_mem(n):
-    if memo[n] != None: # Already computed
+    if memo[n] is not None: # Already computed
         return memo[n]
     else: # Computation needed
         global computation_count_mem

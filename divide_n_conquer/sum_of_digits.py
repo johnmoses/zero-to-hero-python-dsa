@@ -1,5 +1,8 @@
 """
 Sum of Digits
+
+Input: 222
+Output: 6
 """
 
 def sumofDigits(n):
@@ -9,4 +12,4 @@ def sumofDigits(n):
     else:
         return int(n%10) + sumofDigits(int(n/10))
 
-print('Sum of digits ', sumofDigits(222))
+print(sumofDigits(222))

@@ -1,28 +1,39 @@
 """
 Array
-Write a basic array function
-to find the minimum value in a given array.
-
-Step 1: Define the array
-Step 2: Initialize a variable to store the minimum value
-Step 3: Iterate over the array and check each element
-Step 4: Compare each element with the current minimum value
-Step 5: Update the minimum value if a smaller element is found
-Step 6: Return the minimum value
+Write a basic array data structure
 
 Example usage:
     array = [6, 13, 9, 3, 11, 19]
 """
 
-# Define or create the array
-array = [6, 13, 9, 3, 11, 19]
+class Array:
+    def __init__(self, initial_elements):
+        self.data = initial_elements
 
-# Initialize 'min_val' variable to element at position 0 (zero)
-min_val = array[0]
+    def search(self, target):
+        for element in self.data:
+            if element == target:
+                return True
+        return False
 
-# Iterate over the array and check each element
-for i in array:
-    if i < min_val:
-        min_val = i
-        
-print('Minimum value: ',min_val) # Step 4
+    def insert(self, element):
+        self.data.append(element)
+
+    def delete(self, element):
+        for i in range(len(self.data)):
+            if self.data[i] == element:
+                del self.data[i]
+                return
+        print(f"Element {element} not found")
+
+    def traverse(self):
+        for element in self.data:
+            print(element)
+
+# Example usage:
+array = Array([6, 13, 9, 3, 11, 19])
+print(array.search(13))  # Output: True
+array.insert(8)
+array.traverse()  # Output: 6, 13, 9, 3, 11, 19, 8
+array.delete(3)
+array.traverse()  # Output: 6, 13, 9, 11, 19, 8

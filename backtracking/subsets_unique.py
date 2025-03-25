@@ -4,20 +4,12 @@ return all possible subsets.
 
 Note: The solution set must not contain duplicate subsets.
 
-For example,
-If nums = [1,2,2], a solution is:
-
-[
-  [2],
-  [1],
-  [1,2,2],
-  [2,2],
-  [1,2],
-  []
-]
+Example:
+    Input: [1,2,2]
+    Output: [(1, 2), (2,), (1,), (1, 2, 2), (2, 2), ()]
 """
 
-def subsets_unique(nums):
+def subsetsUnique(nums):
     
     def backtrack(res, nums, stack, pos):
         if pos == len(nums):
@@ -35,6 +27,4 @@ def subsets_unique(nums):
     backtrack(res, nums, [], 0)
     return list(res)
 
-nums = [1,2,2]
-result = subsets_unique(nums)
-print(*result)
+print(subsetsUnique([1,2,2]))

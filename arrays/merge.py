@@ -27,6 +27,8 @@ def merge1(arr1, arr2, m, n):
         j -= 1
         k -= 1
 
+    return arr1
+
 def merge2(arr1, m, arr2, n):
     # Iterate over n
     for i in range(n):

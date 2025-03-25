@@ -1,5 +1,9 @@
 """
 Introducing Stacks
+
+Basic operations of a stack data structure are
+    Push
+    Pop
 """
 
 stack = []
@@ -8,19 +12,22 @@ stack = []
 stack.append('A')
 stack.append('B')
 stack.append('C')
+
 print("Stack: ", stack)
 
-# Pop
-element = stack.pop()
-print("Pop: ", element)
+# Push or insert an item
+print("Push: ", stack.append('D'))
+print("Stack: ", stack)
 
-# Peek
-topElement = stack[-1]
-print("Peek: ", topElement)
+# Pop or remove an item
+print("Pop: ", stack.pop())
+print("Stack: ", stack)
 
-# isEmpty
-isEmpty = not bool(stack)
-print("isEmpty: ", isEmpty)
+# Get peek or top item
+print("Peek: ", stack[-1])
 
-# Size
-print("Size: ",len(stack))
+# Check if empty stack
+print("isEmpty: ", len(stack) == 0)
+
+# Get size
+print("Size: ", len(stack))

@@ -12,17 +12,18 @@ arr = [5, 2, [-7, 1], 3, [6, [-13, 8], 4]]
 depth = 1
 Output: 12
 """
-def productSum1(array, level=1):
+
+def productSum1(arr, depth=1):
     """
     Calculate product sum of special array with nested elements
     """
     total = 0
-    for element in array:
+    for element in arr:
         if isinstance(element, list):
-            total += productSum1(element, level + 1)
+            total += productSum1(element, depth + 1)
         else:
             total += element
-    return total * level
+    return total * depth
 
 def productSum2(arr: list[int | list], depth: int) -> int:
     total_sum = 0

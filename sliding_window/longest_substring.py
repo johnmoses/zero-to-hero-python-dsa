@@ -5,10 +5,22 @@ Input: s = "codeforintelligents"
 Output: 3
 Explanation: 'nts' is the longest substring that doesn't contain any vowels.
 """
+def findLongestSubstring1(s):
+    vowels = set('aeiou')
+    longest = 0
+    current = 0
+    for char in s:
+        if char in vowels:
+            current = 0
+        else:
+            current += 1
+            longest = max(longest, current)
+    return longest
 
-s = "codeforintelligents"
+print(findLongestSubstring1("codeforintelligents"))
 
-def findLongestSubstring(s):
+
+def findLongestSubstring2(s):
     vowels = ['a', 'e', 'i', 'o', 'u']
     result = ""
     maxResult = ""
@@ -23,4 +35,4 @@ def findLongestSubstring(s):
     
     return len(maxResult)
 
-print(findLongestSubstring(s))
+print(findLongestSubstring2("codeforintelligents"))

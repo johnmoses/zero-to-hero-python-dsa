@@ -1,10 +1,15 @@
 """ 
 Insertion Sort algorithm 
-It uses one part of the array to hold the sorted values, and the other part of the array to hold values that are not sorted yet
-"""
-arr = [64, 34, 25, 12, 22, 11, 90, 5]
+It uses one part of the array to hold the sorted values, and the other part of the array to hold values that are not sorted yet.
 
-def insertion_sort_1(arr):
+Sample Input 1:
+    arr = [64, 34, 25, 12, 22, 11, 90, 5]
+
+Sample Output 1:
+    [11, 12, 22, 25, 34, 5, 64, 90]
+"""
+
+def insertionSort1(arr):
     n = len(arr)
     for k in range(1, n):
         cur = arr[k]
@@ -15,9 +20,8 @@ def insertion_sort_1(arr):
         arr[j] = cur
     return arr
 
-print(insertion_sort_1(arr))
 
-def insertion_sort_2(arr):
+def insertionSort2(arr):
     n = len(arr)
     for i in range(1,n):
         insert_index = i
@@ -28,9 +32,7 @@ def insertion_sort_2(arr):
         arr.insert(insert_index, current_value)
     return arr
 
-print(insertion_sort_2(arr))
-
-def insertion_sort_3(arr):
+def insertionSort3(arr):
     n = len(arr)
     for i in range(1,n):
         insert_index = i
@@ -43,4 +45,7 @@ def insertion_sort_3(arr):
                 break
         arr[insert_index] = current_value
     return arr
-print(insertion_sort_3(arr))
+
+print(insertionSort1([64, 34, 25, 12, 22, 11, 90, 5]))
+print(insertionSort2([64, 34, 25, 12, 22, 11, 90, 5]))
+print(insertionSort3([64, 34, 25, 12, 22, 11, 90, 5]))

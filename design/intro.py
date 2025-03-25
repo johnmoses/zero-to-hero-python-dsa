@@ -1,27 +1,39 @@
 """ 
-Design algorithms
-Design tic-tac-toe
+Design a task manager
+Implement a basic task manager with the following operations:
+    
+    Add a task with a name, priority, and deadline
+    Get the next task with the highest priority and earliest deadline
+    Remove a task with a given name
+    Get all tasks
 """
-def initialize_board():
-    """Create empty 3x3 board"""
-    return [[" " for _ in range(3)] for _ in range(3)]
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
 
-def print_board(board):
-    """Display the current board state"""
-    for row in board:
-        print("|".join(row))
-        print("-" * 5)
+    def add_task(self, name, priority, deadline):
+        self.tasks.append((name, priority, deadline))
 
-def is_winner(board, player):
-    """Check if the given player has won"""
-    # Check rows, columns, and diagonals
-    for i in range(3):
-        if all(board[i][j] == player for j in range(3)) or all(board[j][i] == player for j in range(3)):
-            return True
-    if all(board[i][i] == player for i in range(3)) or all(board[i][2-i] == player for i in range(3)):
-        return True
-    return False
+    def get_next_task(self):
+        if not self.tasks:
+            return None
+        self.tasks.sort(key=lambda x: (x[1], x[2]))
+        return self.tasks.pop(0)
 
-def is_board_full(board):
-    """Check if the board is full (tie)"""
-    return all(board[i][j] != " " for i in range(3) for j in range(3))
+    def remove_task(self, name):
+        for i, task in enumerate(self.tasks):
+            if task[0] == name:
+                self.tasks.pop(i)
+                break
+
+    def get_tasks(self):
+        return self.tasks
+
+task_manager = TaskManager()
+task_manager.add_task("Task 1", 1, "2022-01-01")
+task_manager.add_task("Task 2", 2, "2022-02-01")
+task_manager.add_task("Task 3", 1, "2022-03-01")
+print(task_manager.get_next_task())
+print(task_manager.get_next_task())  # ("Task 3", 1, "2022-03-01")
+task_manager.remove_task("Task 1")
+print(task_manager.get_tasks())

@@ -1,21 +1,17 @@
 """ 
 Fibonacci with recursion
+
+Recall that Fibonacci numbers is a sequence such that
+each number is the sum of the two preceeding ones starting from 0 and 1
+So we have 0, 1, 1, 2, 3, 5, 8, 13, 21
 """
 
-print(0)
-print(1)
-count = 2
+# The function
+def fibonacci(n):
+    if n <= 2:
+        return [0, 1][:n]
+    sequence = fibonacci(n-1)
+    sequence.append(sum(sequence[-2:]))
+    return sequence
 
-def fibonacci(prev1, prev2):
-    global count
-    if count <= 10:
-        next_num = prev1 + prev2
-        print(next_num)
-        prev2 = prev1
-        prev1 = next_num
-        count += 1
-        fibonacci(prev1, prev2)
-    else:
-        return
-
-fibonacci(1,0)
+print(fibonacci(10))

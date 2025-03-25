@@ -2,14 +2,14 @@
 Write dynamic programing algorithm for nth fibonacci number
 
 """
-def nthFibo1(n):
+def nthFiboacci1(n):
     if n==0: 
         return 0
     if n==1: 
         return 1
-    return nthFibo1(n-1) + nthFibo1(n-2)
+    return nthFiboacci1(n-1) + nthFiboacci1(n-2)
 
-def nthFibo2(n):
+def nthFiboacci2(n):
     if n==0: 
         return 0
     if n==1: 
@@ -24,5 +24,5 @@ def nthFibo2(n):
 
     return F[n]
 
-print(nthFibo1(10))
-print(nthFibo2(10))
+print(nthFiboacci1(10))
+print(nthFiboacci2(10))

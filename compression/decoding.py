@@ -1,5 +1,6 @@
 """ 
-Huffman decoding
+Write Huffman decoding algorithm
+
 """
 class Node:
     def __init__(self, char=None, freq=0):

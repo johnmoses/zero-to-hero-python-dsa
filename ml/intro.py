@@ -1,22 +1,24 @@
 """
-Data Normalization and Standardization
+Implement a simple linear regression algorithm from scratch
+
+Sample Inputs:
+    x = [1, 2, 3, 4, 5]
+    y = [2, 4, 5, 4, 5]
+
 """
+def simple_linear_regression(x, y):
+    n = len(x)
+    sum_x = sum(x)
+    sum_y = sum(y)
+    sum_x_squared = sum([i**2 for i in x])
+    sum_xy = sum([i*j for i, j in zip(x, y)])
 
-from statistics import mean, stdev
+    # Calculate the slope (w1)
+    w1 = (n * sum_xy - sum_x * sum_y) / (n * sum_x_squared - sum_x**2)
 
-def normalize(data: list, ndigits: int=3) -> list:
-    """
-    Returns normalized list
-    """
-    x_min = min(data)
-    x_max = max(data)
-    return [round((x-x_min) / (x_max-x_min), ndigits) for x in data]
+    # Calculate the intercept (w0)
+    w0 = (sum_y - w1 * sum_x) / n
 
-def standardize(data: list, ndigits: int=3)-> list:
-    mu = mean(data)
-    sigma = stdev(data)
-    return [round((x-mu) / (sigma), ndigits) for x in data]
+    return w0, w1
 
-data = [2, 7, 10, 20, 30, 50]
-print(normalize(data))
-print(standardize(data))
+print(simple_linear_regression([1, 2, 3, 4, 5], [2, 4, 5, 4, 5]))

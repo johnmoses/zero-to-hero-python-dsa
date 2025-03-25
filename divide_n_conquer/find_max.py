@@ -1,3 +1,9 @@
+""" 
+Find maximum element in the list
+Input: [1,2,6,4,3,5,8,14,7]
+Output: 14
+"""
+
 def find_max(data):
     #return
     biggest = data[0]
@@ -6,5 +12,4 @@ def find_max(data):
             biggest = val
     return biggest
 
-listData = [1,2,6,4,3,5,8,14,7]
-print(find_max(listData))
+print(find_max([1,2,6,4,3,5,8,14,7]))

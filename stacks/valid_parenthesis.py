@@ -40,7 +40,31 @@ Constraints:
 1 <= s.length <= 104
 s consists of parentheses only '()[]{}'.
 """
-def is_valid(s: str) -> bool:
+def isValid1(s: str) -> bool:
+    """
+    Check if string of parentheses is valid
+    """
+    # Map closing brackets to opening brackets
+    brackets = {')': '(', '}': '{', ']': '['}
+    
+    # Stack to track opening brackets
+    stack = []
+    
+    # Check each character in string
+    for char in s:
+        # If closing bracket found
+        if char in brackets:
+            # Stack is empty or brackets don't match
+            if not stack or stack[-1] != brackets[char]:
+                return False
+            stack.pop()
+        else:
+            stack.append(char)
+    
+    # If stack is empty, all brackets were closed
+    return not stack
+
+def isValid2(s: str) -> bool:
     # Map closing brackets to corresponding open brackets
     pairs = {')': '(', ']': '[', '}': '{'}
     
@@ -60,4 +84,8 @@ def is_valid(s: str) -> bool:
     # Check if any unclosed brackets
     return len(stack) == 0
 
-print(is_valid("()[]{}"))
+
+print(isValid1("()"))  # True
+print(isValid1("()[]{}"))  # True
+print(isValid1("(]"))  # False
+print(isValid1("([])"))  # True

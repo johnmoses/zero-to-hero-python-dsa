@@ -1,7 +1,7 @@
 """
 Write a Function that can reverse a string using stack data structure
 """
-def reverse_string_1(string):
+def reverseString1(string):
     stack = []
     for char in string:
         stack.append(char)
@@ -10,9 +10,9 @@ def reverse_string_1(string):
         reversed_string += stack.pop()
     return reversed_string
 
-print(reverse_string_1("MAPS"))
+print(reverseString1("MAPS"))
 
-def reverse_string_2(s):
+def reverseString2(s):
     stack = []
 
     for ch in s:
@@ -22,4 +22,4 @@ def reverse_string_2(s):
         revstr += stack.pop()
     return revstr
 
-print(reverse_string_2("MAPS"))
+print(reverseString2("MAPS"))

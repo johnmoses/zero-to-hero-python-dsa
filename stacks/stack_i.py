@@ -28,7 +28,7 @@ class Stack:
     def push(self, val):
         self.data.append(val)
 
-    # Remove an item
+    # Remove an item from top
     def pop(self):
         return self.data.pop()
 

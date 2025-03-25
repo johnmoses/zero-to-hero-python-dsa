@@ -1,10 +1,10 @@
 """ 
-Get speed
+Get speeds for different workloads
 """
 
 import time
 
-def get_speeds_1(workload):
+def getSpeeds1(workload):
     """ 
     Get speeds for different workloads
     """
@@ -20,7 +20,7 @@ def get_speeds_1(workload):
         print("%12d%16.3f" % (workload, elapsed))
         workload *= 2
 
-def get_speeds_2(workload):
+def getSpeeds2(workload):
     """ 
     Get speeds for different workloads
     """
@@ -37,6 +37,5 @@ def get_speeds_2(workload):
         print("%12d%16.3f" % (workload, elapsed))
         workload *= 2
 
-workload = 1000
-print(get_speeds_1(workload))
-print(get_speeds_2(workload))
+print(getSpeeds1(1000))
+print(getSpeeds2(1000))

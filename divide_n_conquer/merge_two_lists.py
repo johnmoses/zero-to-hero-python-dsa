@@ -4,6 +4,10 @@ Merge the two lists in a one sorted list.
 The list should be made by splicing together the nodes of the first two lists.
 Return the head of the merged linked list.
 
+Sample 1:
+    list1 = [1,2,4]
+    list2 = [1,3,4]
+
 Constraints:
 
 The number of nodes in both lists is in the range [0, 50].
@@ -29,8 +33,5 @@ class Solution:
             l2.next = self.mergeTwoLists(l1, l2.next)
             return l2
 
-if __name__ == "__main__":
-    list1 = [1,2,4]
-    list2 = [1,3,4]
-    sn = Solution()
-    print(sn.mergeTwoLists(ListNode(list1), ListNode(list2)))
+sn = Solution()
+print(sn.mergeTwoLists(ListNode([1,2,4]), ListNode([1,3,4])))

@@ -1,37 +1,39 @@
-from collections import OrderedDict
-class LRUCache(OrderedDict):
-
-    def __init__(self, capacity):
-        """
-        :type capacity: int
-        """
+""" 
+Design LRU cache
+"""
+class LRUCache:
+    def __init__(self, capacity: int):
         self.capacity = capacity
-
-    def get(self, key):
-        """
-        :type key: int
-        :rtype: int
-        """
-        if key not in self:
-            return - 1
+        self.cache = {}
+        self.order = []
         
-        self.move_to_end(key)
-        return self[key]
+    def get(self, key: int) -> int:
+        if key not in self.cache:
+            return -1
+        self.order.remove(key)
+        self.order.append(key)
+        return self.cache[key]
+        
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self.cache[key] = value
+            self.order.remove(key)
+            self.order.append(key)
+        else:
+            if len(self.cache) >= self.capacity:
+                lru_key = self.order.pop(0)
+                del self.cache[lru_key]
+            self.cache[key] = value
+            self.order.append(key)
 
-    def put(self, key, value):
-        """
-        :type key: int
-        :type value: int
-        :rtype: void
-        """
-        if key in self:
-            self.move_to_end(key)
-        self[key] = value
-        if len(self) > self.capacity:
-            self.popitem(last = False)
-
-
-# Your LRUCache object will be instantiated and called as such:
-# obj = LRUCache(capacity)
-# param_1 = obj.get(key)
-# obj.put(key,value)
+print("LRU cache")
+lru_cache = LRUCache(2)
+lru_cache.put(1, 1)
+lru_cache.put(2, 2)
+print(lru_cache.get(1))
+lru_cache.put(3, 3)
+print(lru_cache.get(2))
+lru_cache.put(4, 4)
+print(lru_cache.get(1))
+print(lru_cache.get(3))
+print(lru_cache.get(4))

@@ -2,16 +2,17 @@
 Data compression
 
 Write a basic data compression algorithm that takes a string and compresses it using the following rules:
-    Consecutive duplicate characters are replaced with a single instance of the character followed by the number of times it appears in the string.
+Consecutive duplicate characters are replaced with a single instance of the character followed by the number of times it appears in the string.
 For example, the string "aaaabbccccc" would be compressed to "a4b2c5".
+
 The function should take a string as input and return the compressed version of the string.
 
 Note: You can assume that the input string will only contain lowercase alphabets.
 Examples:
-    >>> compress("aaaabbccccc")
-    'a4b2c5'
-    >>> compress("abc")
-    'abc'
+    Input: "aaaabbccccc"
+    Output: 'a4b2c5'
+    Input: "abc"
+    Output: 'a1b1c1'
 """
 
 def compress(string):
