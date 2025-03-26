@@ -1,49 +1,24 @@
 """ 
 Maps
-Write a basic implementation of a map data structure with the five core behaviours
+Write a basic example of map data structure
 """
+import collections
 
-class Map:
-    def __init__(self):
-        self.data = []
+dict1 = {'day1': 'Mon', 'day2': 'Tue'}
+dict2 = {'day3': 'Wed', 'day4': 'Thu'}
 
-    def set(self, key, value):
-        for item in self.data:
-            if item[0] == key:
-                item[1] = value
-                return
-        self.data.append([key, value])
+res = collections.ChainMap(dict1, dict2)
 
-    def get(self, key):
-        for item in self.data:
-            if item[0] == key:
-                return item[1]
-        return None
+print(res.maps, '\n')
 
-    def has(self, key):
-        for item in self.data:
-            if item[0] == key:
-                return True
-        return False
+print('Keys = {}'.format(list(res.keys())))
+print('Values = {}'.format(list(res.values())))
+print()
 
-    def delete(self, key):
-        for i, item in enumerate(self.data):
-            if item[0] == key:
-                del self.data[i]
-                return True
-        return False
+print('elements')
+for key, val in res.items():
+    print('{} = {}'.format(key, val))
+print()
 
-    def __str__(self):
-        return str(self.data)
-        
-
-# Example usage
-m = Map()
-m.set("a", 1)
-m.set("b", 2)
-print(m)
-print(m.get("a"))  # Output: 1
-print(m.has("b"))  # Output: True
-m.delete("a")
-print(m.has("a"))  # Output: False
-print(m)
+print('day3 in res: {}'.format(('day3' in res)))
+print('day4 in res: {}'.format(('day4' in res)))

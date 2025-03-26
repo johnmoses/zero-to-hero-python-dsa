@@ -1,42 +1,35 @@
 """ 
-Write a sliding window algorithm to 
-find the maximum sum of a subarray of size k in an array.
+Write a sliding window algorithm with explanation.
 
-Example:
-    Input: arr = [1, 2, 3, 4, 5], k = 3
-    Output: 9 (3 + 4 + 5 = 9)
+Example 1:
+    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    window_size = 3
 """
-def findMaxSum1(arr, k):
-    # Handle edge cases
-    if not arr or k <= 0 or k > len(arr):
-        return 0
-    
-    # Calculate sum of first window
-    window_sum = sum(arr[:k])
-    max_sum = window_sum
-    
-    # Slide window and track maximum sum
-    for i in range(k, len(arr)):
-        window_sum = window_sum - arr[i-k] + arr[i]
-        max_sum = max(max_sum, window_sum)
-        
-    return max_sum
+def sliding_window_sum(arr, window_size):
+    """
+    Calculates the sum of the elements in a sliding window of given size.
 
+    Args:
+        arr: The input array.
+        window_size: The size of the sliding window.
 
-def findMaxSum2(arr, k):
-    maxSum = 0
-    windowSum = 0
-    start = 0
-    
-    for i in range(len(arr)):
-        windowSum += arr[i]
-        
-        if ((i - start + 1) == k):
-            maxSum = max(maxSum, windowSum)
-            windowSum -= arr[start]
-            start += 1
-    
-    return maxSum
+    Returns:
+        A list of sums of the sliding windows.
+    """
+    window_sums = []
 
-print(findMaxSum1([1, 2, 3, 4, 5], 3))
-print(findMaxSum2([1, 2, 3, 4, 5], 3))
+    # Calculate the sum of the first window
+    current_sum = sum(arr[:window_size])
+    window_sums.append(current_sum)
+
+    # Slide the window over the array
+    for i in range(window_size, len(arr)):
+        # Remove the element at the left end of the window
+        current_sum -= arr[i-window_size]
+        # Add the element at the right end of the window
+        current_sum += arr[i]
+        window_sums.append(current_sum)
+
+    return window_sums
+
+print(sliding_window_sum([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))

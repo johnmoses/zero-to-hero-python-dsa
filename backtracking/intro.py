@@ -1,44 +1,41 @@
 """
 Back tracking
 
-Write a simple backtracking algorithm
-to solve the N-Queens problem.
-
-The N-Queens problem is to place N queens on an N×N chessboard
-such that no two queens can attack each other.
-The goal is to find all possible solutions.
-
-For example, with N = 4, there are 2 solutions:
-
-[
- [".Q..",  // Solution 1
-  "...Q",
-  "Q...",
-  "..Q."],
-
- ["..Q.",  // Solution 2
-  "Q...",
-  "...Q",
-  ".Q.."]
-]
-
+Write a simple backtrack algorithm for n-queens problem
 """
-def solveNQueens(n):
-    def backtrack(row, cols, diag1, diag2):
-        if row == n:
-            solutions.append(["." * i + "Q" + "." * (n - i - 1) for i in cols])
-        else:
-            for col in range(n):
-                if col not in cols and row + col not in diag1 and row - col not in diag2:
-                    backtrack(row + 1, cols + [col], diag1 + [row + col], diag2 + [row - col])
+def is_safe(board, row, col, n):
+    # Check same column
+    for i in range(row):
+        if board[i][col] == 1:
+            return False
 
-    solutions = []
-    backtrack(0, [], [], [])
-    return solutions
+    # Check upper left diagonal
+    for i, j in zip(range(row - 1, -1, -1), range(col - 1, -1, -1)):
+        if board[i][j] == 1:
+            return False
 
-# Example usage:
-solutions = solveNQueens(4)
-for solution in solutions:
-    for row in solution:
-        print(row)
-    print()
+    # Check upper right diagonal
+    for i, j in zip(range(row - 1, -1, -1), range(col + 1, n)):
+        if board[i][j] == 1:
+            return False
+
+    return True
+
+def solve_nqueens_util(board, row, n):
+    if row == n:
+        for r in board:
+            print(r)
+        print()
+        return
+
+    for col in range(n):
+        if is_safe(board, row, col, n):
+            board[row][col] = 1
+            solve_nqueens_util(board, row + 1, n)
+            board[row][col] = 0  # Backtrack
+
+def solve_nqueens(n):
+    board = [[0 for _ in range(n)] for _ in range(n)]
+    solve_nqueens_util(board, 0, n)
+
+solve_nqueens(4)

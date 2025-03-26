@@ -15,17 +15,4 @@ def memoize(n, cache=None):
         cache[n] = memoize(n - 1, cache) + memoize(n - 2, cache)
         return cache[n]
 
-print('memoize(6) = ', memoize(6))
-
-"""
-memoize(6) =  8
-"""
-
-# def memoize(n):
-#     print('Computing memoize('+str(n)+')')
-#     if n <= 1:
-#         return n
-#     else:
-#         return memoize(n - 1) + memoize(n - 2)
-
-# print('memoize(6) = ',memoize(6))
+print(memoize(6))

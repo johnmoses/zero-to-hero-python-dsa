@@ -19,7 +19,4 @@ def binary_xor(a: int, b: int) -> str:
         for char_a, char_b in zip(bin_a.zfill(max_len), bin_b.zfill(max_len))
     )
 
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+print(binary_xor(10, 5)) 

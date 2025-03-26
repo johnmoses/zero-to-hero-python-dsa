@@ -1,60 +1,71 @@
 """ 
 Heap data structure
+
+Design a basic heap data structure
 """
 
-import heapq
+class Heap:
+    def __init__(self):
+        self.heap = []
 
-# Construct an empty Min Heap
-minHeap = []
-heapq.heapify(minHeap)
+    def insert(self, value):
+        self.heap.append(value)
+        self._heapify_up(len(self.heap) - 1)
 
-# Construct an empty Max Heap
-# As there are no internal functions to construct a Max Heap in Python,
-# So, we will not construct a Max Heap.
+    def remove(self):
+        if not self.heap:
+            return None
+        if len(self.heap) == 1:
+            return self.heap.pop()
+        root = self.heap[0]
+        self.heap[0] = self.heap.pop()
+        self._heapify_down(0)
+        return root
 
-# Construct a Heap with Initial values
-# this process is called "Heapify"
-# The Heap is a Min Heap
-heapWithValues = [3,1,2]
-heapq.heapify(heapWithValues)
+    def _heapify_up(self, index):
+        parent = (index - 1) // 2
+        if index > 0 and self.heap[index] < self.heap[parent]:
+            self.heap[index], self.heap[parent] = self.heap[parent], self.heap[index]
+            self._heapify_up(parent)
 
-# Trick in constructing a Max Heap
-# As there are no internal functions to construct a Max Heap
-# We can multiply each element by -1, then heapify with these modified elements.
-# The top element will be the smallest element in the modified set,
-# It can also be converted to the maximum value in the original dataset.
-# Example
-maxHeap = [1,2,3]
-maxHeap = [-x for x in maxHeap]
-heapq.heapify(maxHeap)
-# The top element of maxHeap is -3
-# Convert -3 to 3, which is the maximum value in the original maxHeap
+    def _heapify_down(self, index):
+        left = 2 * index + 1
+        right = 2 * index + 2
+        smallest = index
+        if left < len(self.heap) and self.heap[left] < self.heap[smallest]:
+            smallest = left
+        if right < len(self.heap) and self.heap[right] < self.heap[smallest]:
+            smallest = right
+        if smallest != index:
+            self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
+            self._heapify_down(smallest)
 
-# Insert an element to the Min Heap
-heapq.heappush(minHeap, 5)
+    def peek(self):
+        if not self.heap:
+            return None
+        return self.heap[0]
 
-# Insert an element to the Max Heap
-# Multiply the element by -1
-# As we are converting the Min Heap to a Max Heap
-heapq.heappush(maxHeap, -1 * 5)
+    def is_empty(self):
+        return len(self.heap) == 0
 
-# Get top element from the Min Heap
-# i.e. the smallest element
-minHeap[0]
-# Get top element from the Max Heap
-# i.e. the largest element
-# When inserting an element, we multiplied it by -1
-# Therefore, we need to multiply the element by -1 to revert it back
--1 * maxHeap[0]
+    def size(self):
+        return len(self.heap)
 
-# Delete top element from the Min Heap
-heapq.heappop(minHeap)
+    def __str__(self):
+        return str(self.heap)
 
-# Delete top element from the Max Heap
-heapq.heappop(maxHeap)
+    def __repr__(self):
+        return f"Heap({self.__str__()})"
 
-# Length of the Min Heap
-len(minHeap)
-
-# Length of the Max Heap
-len(maxHeap)
+    
+print("Heap data structure")
+heap = Heap()
+heap.insert(5)
+heap.insert(7)
+heap.insert(1)
+heap.insert(3)
+print(heap)
+print(heap.remove())
+print(heap)
+print(heap.remove())
+print(heap)

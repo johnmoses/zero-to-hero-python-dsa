@@ -1,40 +1,46 @@
 """ 
 Knapsack algorithm
 
-A naive solution of the 0-1 problem
+Write a basic knapsack algorithm. Give step by step explanation
 
-Write a basic knapsack algorithm that can be used 
-to solve the 0-1 knapsack problem.
+The 0/1 Knapsack problem is a classic optimization problem where 
+the goal is to maximize the total value of items that can be placed in a knapsack 
+without exceeding the knapsack's capacity.
 
-The algorithm should take in a list of items, each with a weight and a value,
-as well as the maximum weight capacity of the knapsack.
-The algorithm should return the maximum value that can be stored in the knapsack.
-
-For example, given the following items:
-    
-    items = [
-        {"weight": 2, "value": 3},
-        {"weight": 3, "value": 4},
-        {"weight": 4, "value": 5},
-        {"weight": 5, "value": 6}
-
-    capacity = 5
-The algorithm should return 9 (max value of 3 + 4 + 5 = 12 can be stored in the knapsack with a capacity of 5).
+Example 1:
+    values = [60, 100, 120]
+    weights = [10, 20, 30]
+    capacity = 50
+    n = len(values)
 """
 
-def knapsack(weights, values, capacity):
-    n = len(weights)
-    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+def knapsack(capacity, weights, values, n):
+    """
+    Solves the 0/1 Knapsack problem using dynamic programming.
 
-    # Build the dynamic programming table
-    for i in range(1, n + 1):
-        for w in range(1, capacity + 1):
-            if weights[i - 1] <= w:
-                dp[i][w] = max(values[i - 1] + dp[i - 1][w - weights[i - 1]], dp[i - 1][w])
+    Args:
+        capacity: The maximum weight capacity of the knapsack.
+        weights: A list of the weights of the items.
+        values: A list of the values of the items.
+        n: The number of items.
+
+    Returns:
+        The maximum total value that can be put in the knapsack.
+    """
+    # Create a table to store results of subproblems
+    dp = [[0 for x in range(capacity + 1)] for x in range(n + 1)]
+
+    # Build table dp[][] in bottom up manner
+    for i in range(n + 1):
+        for w in range(capacity + 1):
+            if i == 0 or w == 0:
+                dp[i][w] = 0
+            elif weights[i-1] <= w:
+                dp[i][w] = max(values[i-1] + dp[i-1][w-weights[i-1]], dp[i-1][w])
             else:
-                dp[i][w] = dp[i - 1][w]
+                dp[i][w] = dp[i-1][w]
 
-    # Return the maximum value that can be stored in the knapsack
     return dp[n][capacity]
 
-print(knapsack([2, 3, 4, 5], [3, 4, 5, 6], 5))
+
+print(knapsack(50, [10, 20, 30], [60, 100, 120], 3))

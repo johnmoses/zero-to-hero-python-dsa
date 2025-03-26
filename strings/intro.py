@@ -1,39 +1,30 @@
 """
-String algorithms
+Count the number of characters in a string
 
-Find the longest common prefix
+Write a simple string algorithm
 
-Example 1:
-    
-Input: ["flower","flow","flight"]
-Output: "fl"
-Example 2:
-    
-Input: ["dog","racecar","car"]
-Output: ""
-Explanation: There is no common prefix among the input strings.
-Note:
-    
-All given inputs are in lowercase letters a-z.
+The algorithm should take a string as input and return the number of characters in the string.
 """
-def longestCommonPrefix(strs):
-    """
-    :type strs: List[str]
-    :rtype: str
-    """
-    if len(strs) == 0:
-        return ""
-    current = strs[0]
-    for i in range(1, len(strs)):
-        temp = ""
-        if len(current) == 0:
-            break
-        for j in range(len(strs[i])):
-            if j < len(current) and current[j] == strs[i][j]:
-                temp += current[j]
-            else:
-                break
-        current = temp
-    return current
 
-print(longestCommonPrefix(["flower","flow","flight"]))
+def countCharacters(string):
+    """
+    Counts the number of characters in a given string.
+
+    Args:
+        string (str): The input string.
+
+    Returns:
+        int: The number of characters in the string.
+    """
+    # Initialize a counter variable to keep track of the number of characters
+    counter = 0
+    
+    # Iterate over each character in the string
+    for char in string:
+        # Increment the counter for each character
+        counter += 1
+    
+    # Return the final count of characters
+    return counter
+
+print(countCharacters("Hello"))

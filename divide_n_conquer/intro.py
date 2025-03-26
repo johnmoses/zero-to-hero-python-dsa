@@ -1,47 +1,33 @@
 """
-Given a list of n integers, find the maximum element in the list. 
-Use a divide and conquer approach.
+Write a basic divide and conquer algorithm to recursively summ elements in an array
 
-Sample 1 
-    input: [1, 4, 3, -5, -4, 8, 6]
-    Output: 8
+Sample 1:
+    Input: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    Output: 55
+    Explanation: The sum of the array is 55.
 """
 
-def maxElement(arr):
+def divide_and_conquer(arr):
     """
-    Finds the maximum element in the given list using divide and conquer approach.
+    Basic divide and conquer algorithm example.
+    This function demonstrates the concept by recursively summing the elements of an array.
 
     Args:
-        arr (list): A list of integers.
+        arr: The input array of numbers.
 
     Returns:
-        int: The maximum element in the list.
+        The sum of the elements in the array.
     """
-    # Base case: If the list has only one element, return that element
+    if len(arr) == 0:
+        return 0
     if len(arr) == 1:
         return arr[0]
-    
-    # Base case: If the list has two elements, return the maximum of the two
-    if len(arr) == 2:
-        return max(arr[0], arr[1])
-    
-    # Divide the list into two halves
+
     mid = len(arr) // 2
-    left = arr[:mid]
-    right = arr[mid:]
-    
-    # Recursively find the maximum element in the left and right halves
-    left_max = maxElement(left)
-    right_max = maxElement(right)
-    
-    # Return the maximum of the maximum elements from the left and right halves
-    return max(left_max, right_max)
+    left_sum = divide_and_conquer(arr[:mid])
+    right_sum = divide_and_conquer(arr[mid:])
 
-# Example usage
-arr = [1, 4, 3, -5, -4, 8, 6]
-print(maxElement(arr))  # Output: 8
+    return left_sum + right_sum
 
-"""
-Time Complexity: O(n log n)
-Space Complexity: O(log n)
-"""
+result = divide_and_conquer([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+print(f"The sum of the array is: {result}")
