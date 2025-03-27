@@ -1,3 +1,3 @@
-# zero-to-hero-algorithms
+# Zero to Hero Data Structures and Algorithms in Python
 
-Learning algorithms from zero to hero level
+Learning datastructures and algorithms from zero to hero level in Python programming language
