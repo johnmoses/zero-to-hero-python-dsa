@@ -1,40 +1,28 @@
+""" 
+Write a basic matrix data structure
 """
-Matrix and Operations
-"""
-# Defining number of rows and columns in matrix
-rows = 3
-cols = 3
+class Matrix:
+    def __init__(self, rows, cols):
+        self.rows = rows
+        self.cols = cols
+        self.data = [[0] * cols for _ in range(rows)]
 
-# Declaring a matrix of size 3 X 3, and 
-# initializing it with value zero
-rows, cols = (3, 3)
-mat1 = [[0]*cols]*rows
-print('Matrix 1: ', mat1)
+    def get(self, row, col):
+        return self.data[row][col]
 
-mat2 = [
-    [1, 2, 3], 
-    [4, 5, 6], 
-    [7, 8, 9]
-]
+    def set(self, row, col, value):
+        self.data[row][col] = value
 
-# Accessing elements of 2-D array
-print("Row 1 column 1:", mat2[0][0])
-print("Row 2 column 3:", mat2[1][2])
-print("Row 3 column 2:", mat2[2][1])
+    def display(self):
+        for row in self.data:
+            print(row)
 
-# Initializing a 2-D list with values
-mat3 = [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12]
-]
+matrix = Matrix(3, 3)
+matrix.set(0, 0, 1)
+matrix.set(1, 1, 2)
+matrix.set(2, 2, 3)
+print(matrix.get(0, 0))  # Output: 1
+print(matrix.get(1, 1))  # Output: 2
+print(matrix.get(2, 2))  # Output: 3
+print(matrix.display())  # Output: [1, 0, 0], [0, 2, 0], [0, 0, 3]
 
-# Traversing each row
-for row in mat3:
-  
-    # Traversing each element
-    # in the current row
-    for x in row:
-        print(x, end=" ")
-    print()
-    

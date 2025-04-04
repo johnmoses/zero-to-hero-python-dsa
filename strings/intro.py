@@ -1,30 +1,85 @@
 """
-Count the number of characters in a string
+String Algorithms
 
-Write a simple string algorithm
-
-The algorithm should take a string as input and return the number of characters in the string.
+Write code to show basic string operations
 """
 
-def countCharacters(string):
-    """
-    Counts the number of characters in a given string.
+string = "Hello, World!"
+print(string)
+print(string[0])
+print(string[2:5])
+print(string[2:])
 
-    Args:
-        string (str): The input string.
+print(string.upper())
+print(string.lower())
+print(string.strip())
+print(string.replace("H", "J"))
+print(string.split(","))
+print(len(string))
+print("Hello" in string)
+print("Bye" not in string)
 
-    Returns:
-        int: The number of characters in the string.
-    """
-    # Initialize a counter variable to keep track of the number of characters
-    counter = 0
-    
-    # Iterate over each character in the string
-    for char in string:
-        # Increment the counter for each character
-        counter += 1
-    
-    # Return the final count of characters
-    return counter
+a = "Hello"
+b = "World"
+c = a + " " + b
+print(c)
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))
 
-print(countCharacters("Hello"))
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want {} pieces of item {} for {} dollars."
+print(myorder.format(quantity, itemno, price))
+
+txt = "We have {:<8} chickens."
+print(txt.format(49))
+
+txt = "We have {:>8} chickens."
+print(txt.format(49))
+
+txt = "We have {:^8} chickens."
+print(txt.format(49))
+
+txt = "We have {:=8} chickens."
+print(txt.format(49))
+
+txt = "We have {:-8} chickens."
+print(txt.format(49))
+
+txt = "We have {:+} chickens."
+print(txt.format(49))
+
+txt = "We have {:-} chickens."
+print(txt.format(49))
+
+txt = "We have {:-8} chickens."
+print(txt.format(49))
+
+txt = "We have {:-8} chickens."
+print(txt.format(-49))
+
+txt = "We have {:,} chickens."
+print(txt.format(49000))
+
+txt = "We have {:b} chickens."
+print(txt.format(49))
+
+txt = "We have {:c} chickens."
+print(txt.format(49))
+
+txt = "We have {:d} chickens."
+print(txt.format(49))
+
+txt = "We have {:e} chickens."
+print(txt.format(49))
+
+txt = "We have {:E} chickens."
+print(txt.format(49))
+
+txt = "We have {:f} chickens."
+print(txt.format(49))
+
+txt = "We have {:F} chickens."
+print(txt.format(49))

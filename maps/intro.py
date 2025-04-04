@@ -1,24 +1,77 @@
 """ 
 Maps
-Write a basic example of map data structure
+Write a basic example of map data structure to show basic operations
 """
-import collections
 
-dict1 = {'day1': 'Mon', 'day2': 'Tue'}
-dict2 = {'day3': 'Wed', 'day4': 'Thu'}
+# Create an empty map or dictionary
+m = {}
 
-res = collections.ChainMap(dict1, dict2)
+# Add key-value pairs to the map
+m["a"] = 1
+m["b"] = 2
+m["c"] = 3
 
-print(res.maps, '\n')
+# Print the map
+print(m)  # Output: {'a': 1, 'b': 2, 'c': 3}  
+print(m["a"])  # Output: 1
 
-print('Keys = {}'.format(list(res.keys())))
-print('Values = {}'.format(list(res.values())))
-print()
+# Check if a key exists in the map
+print("a" in m)  # Output: True
 
-print('elements')
-for key, val in res.items():
-    print('{} = {}'.format(key, val))
-print()
+# Remove a key-value pair from the map
+del m["a"]
+print(m)  # Output: {'b': 2, 'c': 3}
+print("a" in m)  # Output: False
+print("b" in m)  # Output: True
 
-print('day3 in res: {}'.format(('day3' in res)))
-print('day4 in res: {}'.format(('day4' in res)))
+# Iterate over the map
+for key, value in m.items():
+    print(key, value)
+
+# Output:
+    # ('b', 2)
+# ('c', 3)
+
+# Iterate over the keys in the map
+for key in m.keys():
+    print(key)
+
+# Output:
+    # b
+    # c
+
+# Iterate over the values in the map
+for value in m.values():
+    print(value)
+    # Output:
+    # 2
+    # 3
+
+# Iterate over the keys in the map using a list comprehension
+for key in [k for k in m.keys()]:
+    print(key)
+    # Output:
+    # b
+    # c
+
+# Iterate over the values in the map using a list comprehension
+for value in [v for v in m.values()]:
+    print(value)
+    # Output:
+    # 2
+    # 3
+
+# Iterate over the keys in the map using a list comprehension and sorted
+for key in sorted([k for k in m.keys()]):
+    print(key)
+    # Output:
+    # b
+    # c
+
+# Iterate over the values in the map using a list comprehension and sorted
+for value in sorted([v for v in m.values()]):
+    print(value)
+    # Output:
+    # 2
+    # 3
+

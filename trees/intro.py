@@ -29,6 +29,7 @@ c.right = g
 print("a.right.left.data:", a.right.left.data)
 
 # Traverse
+print('Traverse 1:')
 tree = []
 root = a
 nodes = []
@@ -41,3 +42,14 @@ while root or nodes:
     root = root.right
 values = [str(i) + '->' for i in tree]
 print(values)
+
+# Traverse tree
+print('Traverse 2:')
+def traverse(root):
+    if root is None:
+        return
+    print(root.data, end=" -> ")
+    traverse(root.left)
+    traverse(root.right)
+
+traverse(a)

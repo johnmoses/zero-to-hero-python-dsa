@@ -1,9 +1,10 @@
 """
 Linked Lists
+
 Starting with Singly Linked Lists
 """
 class Node:
-    def __init__(self, data=None):
+    def __init__(self, data):
         self.data = data
         self.next = None
 
@@ -16,28 +17,31 @@ c = Node(40)
 a.next = b
 b.next = c
 
-# Set first node
-firstNode = a
-
 # Traverse and display nodes in order
 
 # Method 1
-while firstNode:
-    print(firstNode.data)
-    firstNode = firstNode.next
+# Set first node as current
+current = a
+while current:
+    print(current.data, end=' -> ')
+    current = current.next
+print()
 
 # Method 2
-# nodes = ""
-# while firstNode:
-#     # print(firstNode.data)
-#     nodes += (str(firstNode.data) + ' -> ')
-#     firstNode = firstNode.next
-# print(nodes)
+# Set first node as current
+current = a
+nodes = ""
+while current:
+    nodes += (str(current.data) + ' -> ')
+    current = current.next
+print(nodes)
 
 # Method 3
-# nodes = []
-# while firstNode:
-#     nodes.append(firstNode.data)
-#     firstNode = firstNode.next
-# values = [str(i) + ' -> ' for i in nodes]
-# print(values)
+# Set first node as current
+current = a
+nodes = []
+while current:
+    nodes.append(current.data)
+    current = current.next
+values = [str(i) + ' -> ' for i in nodes]
+print(values)

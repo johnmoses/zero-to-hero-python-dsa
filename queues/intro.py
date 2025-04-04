@@ -1,5 +1,5 @@
 """
-Introduction to Queues
+Write a basic array queue data structure showing basic functionalities
 """
 
 queue = []

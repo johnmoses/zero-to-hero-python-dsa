@@ -4,8 +4,8 @@ Binary Tree from dictionary
 dct = [15, 10, 8, 12, 20, 16, 25] 
 
 class Node:
-    def __init__(self, x, left= None, right = None):
-        self.val = x
+    def __init__(self, data, left= None, right = None):
+        self.data = data
         self.left = left
         self.right = right
 
@@ -28,7 +28,7 @@ def build_tree(data):
         # If our node is None then we have a leaf so
         # there's no work to do; otherwise, create the
         # node and add it to the proper spot
-        if data[i] != None:
+        if data[i] is not None:
 
             # Create the node from the data
             node = Node(data[i])

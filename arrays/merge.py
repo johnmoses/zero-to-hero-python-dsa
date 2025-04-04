@@ -9,6 +9,16 @@ n = 3
 """
 
 def merge1(arr1, arr2, m, n):
+    # Iterate over arr2
+    for i in range(n):
+        # Update value of arr1 after index m to value of arr2 at index i
+        arr1[i+m] = arr2[i]
+
+    # Sort list in-place
+    arr1.sort()
+    print(arr1)
+
+def merge2(arr1, m, arr2, n):
     i = m - 1
     j = n - 1
     k = m + n - 1
@@ -28,15 +38,6 @@ def merge1(arr1, arr2, m, n):
         k -= 1
 
     return arr1
-
-def merge2(arr1, m, arr2, n):
-    # Iterate over n
-    for i in range(n):
-        arr1[i+m] = arr2[i]
-
-    # Sort list in-place
-    arr1.sort()
-    print(arr1)
 
 print(merge1([1,2,3,0,0,0], [2,5,6], 3, 3))
 # merge2([1,2,3,0,0,0], [2,5,6], 3, 3)

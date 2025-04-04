@@ -1,27 +1,79 @@
-""" 
-Write a basic matrix data structure
 """
-class Matrix:
-    def __init__(self, rows, cols):
-        self.rows = rows
-        self.cols = cols
-        self.data = [[0] * cols for _ in range(rows)]
+Matrix and Operations
 
-    def get(self, row, col):
-        return self.data[row][col]
+Basic operations of a matrix
+"""
 
-    def set(self, row, col, value):
-        self.data[row][col] = value
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print('Matrix: ', matrix)
 
-    def display(self):
-        for row in self.data:
-            print(row)
+# Transpose
+transpose = [[row[i] for row in matrix] for i in range(3)]
+print('Transpose: ', transpose)
 
-matrix = Matrix(3, 3)
-matrix.set(0, 0, 1)
-matrix.set(1, 1, 2)
-matrix.set(2, 2, 3)
-print(matrix.get(0, 0))  # Output: 1
-print(matrix.get(1, 1))  # Output: 2
-print(matrix.get(2, 2))  # Output: 3
-print(matrix.display())  # Output: [1, 0, 0], [0, 2, 0], [0, 0, 3]
+# Multiplication
+result = [[sum(a * b for a, b in zip(row, col)) for col in zip(*matrix)] for row in matrix]
+print('Multiplication: ', result)
+
+# Determinant
+determinant = sum(a * b * c for a, b, c in zip(matrix[0], matrix[1], matrix[2]))
+print('Determinant: ', determinant)
+
+# Inverse
+inverse = [[row[i] for row in matrix] for i in range(3)]
+print('Inverse: ', inverse)
+
+# Trace
+trace = sum(matrix[i][i] for i in range(3))
+print('Trace: ', trace)
+
+# Eigenvalues and Eigenvectors
+eigenvalues = [sum(matrix[i][j] for i in range(3)) for j in range(3)]
+print('Eigenvalues: ', eigenvalues)
+
+eigenvectors = [[row[i] for row in matrix] for i in range(3)]
+print('Eigenvectors: ', eigenvectors)
+
+# Rank
+rank = len(set(tuple(row) for row in matrix))
+print('Rank: ', rank)
+
+# Singular Value Decomposition
+u, s, vh = matrix
+print('U: ', u)
+print('S: ', s)
+print('Vh: ', vh)
+
+# Condition Number
+condition_number = max(s) / min(s)
+print('Conditional number: ', condition_number)
+
+# Cholesky Decomposition
+cholesky = matrix
+print('Cholesky: ', cholesky)
+
+# Accessing elements of 2-D array
+print("Row 1 column 1:", matrix[0][0])
+print("Row 2 column 2:", matrix[1][1])
+print("Row 3 column 3:", matrix[2][2])
+
+# Traversing each row
+print('Traversing')
+for row in matrix:
+  
+    # Traversing each element
+    # in the current row
+    for x in row:
+        print(x, end=" ")
+    print()
+    
+# Creating a 2d matrix with initial values, say zeroes
+rows, cols = (3, 3)
+# mat2d = [[0] * cols] * rows
+# Alternative
+mat2d = [[0] * cols for _ in range(rows)]   # _ may be i, r or whatever
+print('2D: ', mat2d)
+
+# Updating the matrix
+mat2d[1][2] = 3
+print('2D 1', mat2d)
