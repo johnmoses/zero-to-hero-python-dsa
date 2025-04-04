@@ -1,5 +1,5 @@
 """
-Array
+Arrays
 
 Write code to show the basic functionality or behavior of an array
 """
